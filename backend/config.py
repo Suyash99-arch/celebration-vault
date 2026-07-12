@@ -1,0 +1,39 @@
+from pathlib import Path
+from datetime import timedelta
+
+# ==========================================
+# PROJECT
+# ==========================================
+
+BASE_DIR = Path(__file__).resolve().parent
+
+APP_NAME = "Birthday Vault"
+API_VERSION = "3.0"
+
+# ==========================================
+# DATABASE
+# ==========================================
+
+DATABASE_FILE = BASE_DIR / "birthday.db"
+
+# ==========================================
+# FLASK
+# ==========================================
+
+HOST = "127.0.0.1"
+PORT = 5000
+DEBUG = True
+
+# ==========================================
+# JWT
+# ==========================================
+
+JWT_SECRET_KEY = "birthday_vault_2026_super_secret_key_1234567890_abcdefghijklmnopqrstuvwxyz"
+
+JWT_ACCESS_TOKEN_EXPIRES = timedelta(days=7)
+
+# ==========================================
+# DATE
+# ==========================================
+
+DATE_FORMAT = "%Y-%m-%d"

@@ -1,0 +1,389 @@
+/* ==========================================================
+   DASHBOARD
+   Part 1
+   Layout • Sidebar • Topbar
+========================================================== */
+
+/* ==========================================================
+   APP LAYOUT
+========================================================== */
+
+.dashboard-layout{
+
+    display:grid;
+
+    grid-template-columns:280px 1fr;
+
+    min-height:100vh;
+
+    background:#F6F8FC;
+
+}
+
+
+
+
+
+/* ==========================================================
+   SIDEBAR
+========================================================== */
+
+.sidebar{
+
+    display:flex;
+
+    flex-direction:column;
+
+    justify-content:space-between;
+
+    background:#ffffff;
+
+    border-right:1px solid #E8ECF4;
+
+    padding:30px 22px;
+
+    position:sticky;
+
+    top:0;
+
+    height:100vh;
+
+}
+
+
+
+
+
+/* ==========================================================
+   LOGO
+========================================================== */
+
+.sidebar-logo{
+
+    display:flex;
+
+    align-items:center;
+
+    gap:15px;
+
+    margin-bottom:45px;
+
+}
+
+.logo-circle{
+
+    width:56px;
+
+    height:56px;
+
+    border-radius:18px;
+
+    background:linear-gradient(
+        135deg,
+        #6366F1,
+        #8B5CF6
+    );
+
+    display:flex;
+
+    justify-content:center;
+
+    align-items:center;
+
+    color:#fff;
+
+    font-size:24px;
+
+    box-shadow:0 12px 30px rgba(99,102,241,.25);
+
+}
+
+.sidebar-logo h2{
+
+    font-size:22px;
+
+    color:#1F2937;
+
+    font-weight:700;
+
+    margin:0;
+
+}
+
+.sidebar-logo span{
+
+    color:#7C3AED;
+
+    font-size:14px;
+
+    font-weight:600;
+
+}
+
+
+
+
+
+/* ==========================================================
+   MENU
+========================================================== */
+
+.sidebar-menu{
+
+    display:flex;
+
+    flex-direction:column;
+
+    gap:12px;
+
+}
+
+
+
+
+
+.sidebar-link{
+
+    border:none;
+
+    background:transparent;
+
+    display:flex;
+
+    align-items:center;
+
+    gap:14px;
+
+    padding:14px 18px;
+
+    border-radius:14px;
+
+    cursor:pointer;
+
+    font-size:15px;
+
+    font-weight:600;
+
+    color:#4B5563;
+
+    transition:.30s;
+
+}
+
+
+
+
+
+.sidebar-link:hover{
+
+    background:#EEF2FF;
+
+    color:#4F46E5;
+
+}
+
+
+
+
+
+.sidebar-link.active{
+
+    background:linear-gradient(
+        135deg,
+        #6366F1,
+        #8B5CF6
+    );
+
+    color:white;
+
+    box-shadow:0 12px 28px rgba(99,102,241,.25);
+
+}
+
+
+
+
+
+/* ==========================================================
+   LOGOUT
+========================================================== */
+
+.sidebar-bottom{
+
+    margin-top:35px;
+
+}
+
+
+
+
+
+.logout-button{
+
+    width:100%;
+
+    padding:14px;
+
+    border:none;
+
+    border-radius:14px;
+
+    cursor:pointer;
+
+    font-size:15px;
+
+    font-weight:600;
+
+    color:#fff;
+
+    background:#EF4444;
+
+    transition:.30s;
+
+}
+
+
+
+
+
+.logout-button:hover{
+
+    background:#DC2626;
+
+    transform:translateY(-2px);
+
+}
+
+
+
+
+
+/* ==========================================================
+   MAIN
+========================================================== */
+
+.dashboard-main{
+
+    display:flex;
+
+    flex-direction:column;
+
+    min-height:100vh;
+
+}
+
+
+
+
+
+/* ==========================================================
+   TOPBAR
+========================================================== */
+
+.topbar{
+
+    background:white;
+
+    border-bottom:1px solid #E8ECF4;
+
+    padding:26px 40px;
+
+    display:flex;
+
+    justify-content:space-between;
+
+    align-items:center;
+
+}
+
+
+
+
+
+.topbar h1{
+
+    margin:0;
+
+    font-size:32px;
+
+    color:#111827;
+
+    font-weight:700;
+
+}
+
+
+
+
+
+.topbar p{
+
+    margin-top:6px;
+
+    color:#6B7280;
+
+}
+
+
+
+
+
+.topbar-actions{
+
+    display:flex;
+
+    align-items:center;
+
+    gap:16px;
+
+}
+
+
+
+
+
+.profile-button{
+
+    border:none;
+
+    background:#EEF2FF;
+
+    color:#4F46E5;
+
+    padding:12px 20px;
+
+    border-radius:14px;
+
+    cursor:pointer;
+
+    font-weight:600;
+
+    transition:.30s;
+
+}
+
+
+
+
+
+.profile-button:hover{
+
+    background:#6366F1;
+
+    color:white;
+
+}
+
+
+
+
+
+/* ==========================================================
+   PAGE CONTENT
+========================================================== */
+
+.page-content{
+
+    padding:40px;
+
+}

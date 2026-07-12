@@ -1,0 +1,166 @@
+/* ==========================================
+   LARGE LAPTOP
+========================================== */
+
+@media (max-width:1200px){
+
+    .sidebar{
+
+        width:250px;
+
+    }
+
+}
+
+/* ==========================================
+   TABLET
+========================================== */
+
+@media (max-width:992px){
+
+    .app-layout{
+
+        grid-template-columns:90px 1fr;
+
+    }
+
+    .sidebar h2,
+    .sidebar p,
+    .nav-item span:last-child,
+    .user-info{
+
+        display:none;
+
+    }
+
+    .logo{
+
+        justify-content:center;
+
+    }
+
+    .nav-item{
+
+        justify-content:center;
+
+    }
+
+    .hero{
+
+        grid-template-columns:1fr;
+
+    }
+
+    .dashboard-grid{
+
+        grid-template-columns:1fr;
+
+    }
+
+    .quick-panel{
+
+        position:relative;
+
+        top:0;
+
+    }
+
+}
+
+/* ==========================================
+   MOBILE
+========================================== */
+
+@media (max-width:768px){
+
+    .app-layout{
+
+        grid-template-columns:1fr;
+
+    }
+
+    .sidebar{
+
+        display:none;
+
+    }
+
+    .main-content{
+
+        padding:20px;
+
+    }
+
+    .stats-grid,
+    .profile-grid,
+    .form-grid{
+
+        grid-template-columns:1fr;
+
+    }
+
+    .hero-content{
+
+        padding:30px;
+
+    }
+
+    .hero-content h1{
+
+        font-size:34px;
+
+    }
+
+    .hero-actions{
+
+        flex-direction:column;
+
+    }
+
+    .search-box{
+
+        flex-direction:column;
+
+    }
+
+    .search-box button{
+
+        width:100%;
+
+    }
+
+}
+
+/* ==========================================
+   SMALL MOBILE
+========================================== */
+
+@media (max-width:480px){
+
+    body{
+
+        font-size:14px;
+
+    }
+
+    h1{
+
+        font-size:2rem;
+
+    }
+
+    h2{
+
+        font-size:1.5rem;
+
+    }
+
+    .form-card,
+    .search-card,
+    .dashboard-section{
+
+        padding:22px;
+
+    }
+
+}

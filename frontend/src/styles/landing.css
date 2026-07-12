@@ -1,0 +1,282 @@
+/* ==========================================
+   ABOUT
+========================================== */
+
+.about-section{
+
+    display:grid;
+    grid-template-columns:1.2fr .8fr;
+    gap:60px;
+
+    align-items:center;
+
+    padding:100px 8%;
+}
+
+.section-small{
+
+    color:#7c3aed;
+
+    font-weight:700;
+
+    letter-spacing:2px;
+
+    font-size:13px;
+}
+
+.about-section h2{
+
+    margin:18px 0;
+
+    font-size:44px;
+
+    color:#1e293b;
+}
+
+.about-section p{
+
+    color:#64748b;
+
+    line-height:1.9;
+
+    margin-bottom:18px;
+}
+
+.about-points{
+
+    display:grid;
+
+    grid-template-columns:repeat(2,1fr);
+
+    gap:18px;
+
+    margin-top:35px;
+}
+
+.about-points div{
+
+    background:white;
+
+    padding:18px;
+
+    border-radius:18px;
+
+    box-shadow:0 10px 35px rgba(0,0,0,.06);
+
+    font-weight:600;
+}
+
+.about-card{
+
+    background:linear-gradient(135deg,#6d4df6,#5b4cf6);
+
+    color:white;
+
+    padding:55px;
+
+    border-radius:30px;
+
+    text-align:center;
+
+    box-shadow:0 30px 70px rgba(91,76,246,.35);
+}
+
+.about-card{
+
+    font-size:22px;
+}
+
+.about-card h3{
+
+    margin:20px 0;
+}
+/* ===========================
+   LANDING STATISTICS
+=========================== */
+
+.landing-stats{
+
+    padding:90px 0;
+
+}
+
+.landing-stat-grid{
+
+    margin-top:50px;
+
+    display:grid;
+
+    grid-template-columns:repeat(4,1fr);
+
+    gap:28px;
+
+}
+
+.landing-stat-card{
+
+    background:#fff;
+
+    border-radius:26px;
+
+    padding:40px;
+
+    text-align:center;
+
+    border:1px solid rgba(90,90,255,.08);
+
+    transition:.35s;
+
+    box-shadow:0 18px 50px rgba(25,40,90,.08);
+
+}
+
+.landing-stat-card:hover{
+
+    transform:translateY(-10px);
+
+    box-shadow:0 30px 60px rgba(90,80,255,.18);
+
+}
+
+.landing-stat-card .stat-icon{
+
+    width:74px;
+
+    height:74px;
+
+    margin:auto;
+
+    border-radius:22px;
+
+    display:flex;
+
+    align-items:center;
+
+    justify-content:center;
+
+    font-size:34px;
+
+    background:linear-gradient(135deg,#6A5CFF,#8E44FF);
+
+    color:white;
+
+    margin-bottom:22px;
+
+}
+
+.landing-stat-card h2{
+
+    font-size:32px;
+
+    margin-bottom:10px;
+
+}
+
+.landing-stat-card p{
+
+    color:#666;
+
+    font-size:15px;
+
+}
+/* ===================================
+   SHOWCASE SECTION
+=================================== */
+
+.showcase-section{
+
+    padding:110px 0;
+
+    display:flex;
+
+    flex-direction:column;
+
+    gap:90px;
+
+}
+
+.showcase-row{
+
+    display:grid;
+
+    grid-template-columns:1fr 1fr;
+
+    gap:70px;
+
+    align-items:center;
+
+}
+
+.showcase-row.reverse{
+
+    direction:rtl;
+
+}
+
+.showcase-row.reverse>*{
+
+    direction:ltr;
+
+}
+
+.showcase-image{
+
+    height:360px;
+
+    border-radius:32px;
+
+    background:linear-gradient(135deg,#6C63FF,#8B5CF6);
+
+    display:flex;
+
+    align-items:center;
+
+    justify-content:center;
+
+    font-size:120px;
+
+    color:#fff;
+
+    box-shadow:0 30px 70px rgba(108,99,255,.25);
+
+}
+
+.showcase-content h2{
+
+    font-size:42px;
+
+    margin:18px 0;
+
+}
+
+.showcase-content p{
+
+    color:#64748b;
+
+    line-height:1.9;
+
+    font-size:18px;
+
+    margin-bottom:25px;
+
+}
+
+.showcase-content ul{
+
+    list-style:none;
+
+    padding:0;
+
+    display:grid;
+
+    gap:14px;
+
+}
+
+.showcase-content li{
+
+    font-size:17px;
+
+    color:#1e293b;
+
+}

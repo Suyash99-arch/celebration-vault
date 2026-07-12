@@ -1,0 +1,518 @@
+/* ==========================================================
+   PREMIUM FORM SYSTEM
+   PART 1
+========================================================== */
+
+
+/* ==========================================================
+   FORM
+========================================================== */
+
+.form{
+
+    display:flex;
+
+    flex-direction:column;
+
+    gap:24px;
+
+}
+
+
+/* ==========================================================
+   FORM GRID
+========================================================== */
+
+.form-grid{
+
+    display:grid;
+
+    grid-template-columns:repeat(auto-fit,minmax(260px,1fr));
+
+    gap:22px;
+
+}
+
+
+/* ==========================================================
+   FORM GROUP
+========================================================== */
+
+.form-group{
+
+    display:flex;
+
+    flex-direction:column;
+
+    gap:10px;
+
+}
+
+
+/* ==========================================================
+   LABEL
+========================================================== */
+
+.form-group label{
+
+    font-size:.95rem;
+
+    font-weight:600;
+
+    color:var(--text);
+
+}
+
+
+/* ==========================================================
+   INPUT
+========================================================== */
+
+.form-group input,
+
+.form-group textarea,
+
+.form-group select{
+
+    width:100%;
+
+    padding:14px 18px;
+
+    border:1px solid var(--border);
+
+    border-radius:16px;
+
+    background:var(--surface);
+
+    color:var(--text);
+
+    font-size:.95rem;
+
+    transition:all .25s ease;
+
+}
+
+
+/* ==========================================================
+   PLACEHOLDER
+========================================================== */
+
+.form-group input::placeholder,
+
+.form-group textarea::placeholder{
+
+    color:var(--text-light);
+
+}
+
+
+/* ==========================================================
+   FOCUS
+========================================================== */
+
+.form-group input:focus,
+
+.form-group textarea:focus,
+
+.form-group select:focus{
+
+    border-color:var(--primary);
+
+    box-shadow:
+
+        0 0 0 4px rgba(37,99,235,.12);
+
+}
+
+
+/* ==========================================================
+   TEXTAREA
+========================================================== */
+
+.form-group textarea{
+
+    resize:vertical;
+
+    min-height:120px;
+
+}
+
+
+/* ==========================================================
+   SELECT
+========================================================== */
+
+.form-group select{
+
+    cursor:pointer;
+
+}
+
+
+/* ==========================================================
+   HELP TEXT
+========================================================== */
+
+.form-help{
+
+    font-size:.82rem;
+
+    color:var(--text-light);
+
+}
+
+
+/* ==========================================================
+   REQUIRED
+========================================================== */
+
+.required{
+
+    color:var(--danger);
+
+}
+/* ==========================================================
+   PREMIUM FORM SYSTEM
+   PART 2
+========================================================== */
+
+
+/* ==========================================================
+   VALIDATION STATES
+========================================================== */
+
+.form-group.success input,
+.form-group.success textarea,
+.form-group.success select{
+
+    border-color:var(--success);
+
+    box-shadow:0 0 0 4px rgba(34,197,94,.12);
+
+}
+
+.form-group.error input,
+.form-group.error textarea,
+.form-group.error select{
+
+    border-color:var(--danger);
+
+    box-shadow:0 0 0 4px rgba(239,68,68,.12);
+
+}
+
+.form-error{
+
+    font-size:.82rem;
+
+    color:var(--danger);
+
+    font-weight:500;
+
+}
+
+.form-success{
+
+    font-size:.82rem;
+
+    color:var(--success);
+
+    font-weight:500;
+
+}
+
+
+/* ==========================================================
+   READ ONLY & DISABLED
+========================================================== */
+
+input:disabled,
+textarea:disabled,
+select:disabled{
+
+    cursor:not-allowed;
+
+    opacity:.65;
+
+    background:var(--background-secondary);
+
+}
+
+input[readonly],
+textarea[readonly]{
+
+    background:var(--background-secondary);
+
+}
+
+
+/* ==========================================================
+   CHECKBOX & RADIO
+========================================================== */
+
+.checkbox-group,
+.radio-group{
+
+    display:flex;
+
+    align-items:center;
+
+    gap:12px;
+
+    flex-wrap:wrap;
+
+}
+
+.checkbox-group label,
+.radio-group label{
+
+    display:flex;
+
+    align-items:center;
+
+    gap:8px;
+
+    cursor:pointer;
+
+    font-weight:500;
+
+    color:var(--text-secondary);
+
+}
+
+.checkbox-group input,
+.radio-group input{
+
+    width:18px;
+
+    height:18px;
+
+    accent-color:var(--primary);
+
+    cursor:pointer;
+
+}
+
+
+/* ==========================================================
+   FILE INPUT
+========================================================== */
+
+input[type="file"]{
+
+    padding:12px;
+
+    border:1px dashed var(--border-dark);
+
+    border-radius:16px;
+
+    background:var(--background-secondary);
+
+    cursor:pointer;
+
+}
+
+input[type="file"]:hover{
+
+    border-color:var(--primary);
+
+    background:#eff6ff;
+
+}
+
+
+/* ==========================================================
+   INPUT GROUP
+========================================================== */
+
+.input-group{
+
+    display:flex;
+
+    align-items:center;
+
+    gap:12px;
+
+}
+
+.input-group input{
+
+    flex:1;
+
+}
+
+
+/* ==========================================================
+   FORM ACTIONS
+========================================================== */
+
+.form-actions{
+
+    display:flex;
+
+    justify-content:flex-end;
+
+    align-items:center;
+
+    gap:16px;
+
+    margin-top:12px;
+
+    padding-top:24px;
+
+    border-top:1px solid var(--border);
+
+}
+
+
+/* ==========================================================
+   FORM DIVIDER
+========================================================== */
+
+.form-divider{
+
+    height:1px;
+
+    background:var(--border);
+
+    margin:12px 0;
+
+}
+
+
+/* ==========================================================
+   CHARACTER COUNT
+========================================================== */
+
+.character-count{
+
+    margin-top:6px;
+
+    text-align:right;
+
+    font-size:.78rem;
+
+    color:var(--text-light);
+
+}
+
+
+/* ==========================================================
+   FIELDSET
+========================================================== */
+
+fieldset{
+
+    border:1px solid var(--border);
+
+    border-radius:18px;
+
+    padding:22px;
+
+}
+
+legend{
+
+    padding:0 8px;
+
+    font-weight:700;
+
+    color:var(--text);
+
+}
+
+
+/* ==========================================================
+   RESPONSIVE
+========================================================== */
+
+@media (max-width:768px){
+
+    .form-grid{
+
+        grid-template-columns:1fr;
+
+    }
+
+    .form-actions{
+
+        flex-direction:column;
+
+        align-items:stretch;
+
+    }
+
+    .form-actions button{
+
+        width:100%;
+
+    }
+
+}
+
+
+/* ==========================================================
+   MICRO INTERACTIONS
+========================================================== */
+
+.form-group input:hover,
+.form-group textarea:hover,
+.form-group select:hover{
+
+    border-color:#bfdbfe;
+
+}
+
+.form-group input:focus,
+.form-group textarea:focus,
+.form-group select:focus{
+
+    transform:translateY(-1px);
+
+}
+
+.form-group{
+
+    animation:fadeUp .35s ease both;
+
+}
+
+
+/* ==========================================================
+   AUTOFILL
+========================================================== */
+
+input:-webkit-autofill,
+textarea:-webkit-autofill,
+select:-webkit-autofill{
+
+    -webkit-box-shadow:0 0 0 1000px var(--surface) inset;
+
+    -webkit-text-fill-color:var(--text);
+
+}
+
+
+/* ==========================================================
+   FINAL POLISH
+========================================================== */
+
+.form-card{
+
+    background:var(--surface);
+
+    border:1px solid var(--border);
+
+    border-radius:24px;
+
+    padding:28px;
+
+    box-shadow:var(--shadow);
+
+}
+
+.form-card:hover{
+
+    box-shadow:var(--shadow-lg);
+
+}
