@@ -1,233 +1,58 @@
-/* ==========================================================
-   BIRTHDAY VAULT
-   DESIGN SYSTEM
-========================================================== */
-
-:root{
-
-    /* ======================================================
-       BRAND COLORS
-    ====================================================== */
-
-    --primary:#2563eb;
-    --primary-dark:#1d4ed8;
-    --primary-light:#60a5fa;
-
-    --secondary:#6366f1;
-    --secondary-dark:#4f46e5;
-    --secondary-light:#a5b4fc;
-
-
-    /* ======================================================
-       STATUS COLORS
-    ====================================================== */
-
-    --success:#22c55e;
-    --success-light:#dcfce7;
-
-    --warning:#f59e0b;
-    --warning-light:#fef3c7;
-
-    --danger:#ef4444;
-    --danger-light:#fee2e2;
-
-    --info:#0ea5e9;
-    --info-light:#e0f2fe;
-
-
-    /* ======================================================
-       BACKGROUNDS
-    ====================================================== */
-
-    --background:#f8fafc;
-
-    --background-secondary:#f1f5f9;
-
-    --surface:#ffffff;
-
-    --surface-hover:#f8fbff;
-
-    --glass:rgba(255,255,255,.75);
-
-    --glass-dark:rgba(255,255,255,.58);
-
-
-    /* ======================================================
-       TEXT
-    ====================================================== */
-
-    --text:#0f172a;
-
-    --text-secondary:#334155;
-
-    --text-light:#64748b;
-
-    --text-muted:#94a3b8;
-
-    --text-white:#ffffff;
-
-
-    /* ======================================================
-       BORDER
-    ====================================================== */
-
-    --border:#e2e8f0;
-
-    --border-light:#edf2f7;
-
-    --border-dark:#cbd5e1;
-
-
-    /* ======================================================
-       BORDER RADIUS
-    ====================================================== */
-
-    --radius-xs:8px;
-
-    --radius-sm:12px;
-
-    --radius:18px;
-
-    --radius-lg:24px;
-
-    --radius-xl:30px;
-
-    --radius-round:999px;
-
-
-    /* ======================================================
-       SHADOWS
-    ====================================================== */
-
-    --shadow-xs:
-        0 2px 6px rgba(15,23,42,.04);
-
-    --shadow-sm:
-        0 4px 12px rgba(15,23,42,.05);
-
-    --shadow:
-        0 10px 25px rgba(15,23,42,.08);
-
-    --shadow-lg:
-        0 18px 45px rgba(15,23,42,.12);
-
-    --shadow-xl:
-        0 30px 70px rgba(15,23,42,.16);
-
-
-    /* ======================================================
-       GLASS SHADOW
-    ====================================================== */
-
-    --glass-shadow:
-
-        0 10px 40px rgba(15,23,42,.08);
-
-
-    /* ======================================================
-       TRANSITIONS
-    ====================================================== */
-
-    --transition-fast:.18s ease;
-
-    --transition:.28s ease;
-
-    --transition-slow:.45s ease;
-
-
-    /* ======================================================
-       SPACING
-    ====================================================== */
-
-    --space-xs:6px;
-
-    --space-sm:12px;
-
-    --space-md:18px;
-
-    --space-lg:24px;
-
-    --space-xl:32px;
-
-    --space-2xl:42px;
-
-    --space-3xl:56px;
-
-
-    /* ======================================================
-       CONTAINER
-    ====================================================== */
-
-    --container-width:1400px;
-
-
-    /* ======================================================
-       HEADER
-    ====================================================== */
-
-    --header-height:72px;
-
-
-    /* ======================================================
-       SIDEBAR
-    ====================================================== */
-
-    --sidebar-width:270px;
-
-    --sidebar-collapsed:88px;
-
-
-    /* ======================================================
-       Z INDEX
-    ====================================================== */
-
-    --z-dropdown:100;
-
-    --z-sticky:500;
-
-    --z-fixed:700;
-
-    --z-modal:1000;
-
-    --z-toast:1200;
-
-    --z-tooltip:1300;
-
-
-    /* ======================================================
-       GRADIENTS
-    ====================================================== */
-
-    --gradient-primary:
-
-        linear-gradient(
-            135deg,
-            #2563eb,
-            #4f46e5
-        );
-
-    --gradient-soft:
-
-        linear-gradient(
-            135deg,
-            #eff6ff,
-            #eef2ff
-        );
-
-    --gradient-success:
-
-        linear-gradient(
-            135deg,
-            #22c55e,
-            #16a34a
-        );
-
-    --gradient-danger:
-
-        linear-gradient(
-            135deg,
-            #ef4444,
-            #dc2626
-        );
-
+:root {
+    --primary: #5b4ff7;
+    --primary-dark: #493bd8;
+    --primary-light: #a9a3ff;
+    --secondary: #7c3aed;
+    --success: #16a34a;
+    --warning: #f59e0b;
+    --danger: #e5484d;
+    --info: #2563eb;
+    --background: #f7f7ff;
+    --background-secondary: #f0efff;
+    --surface: #ffffff;
+    --card: rgba(255, 255, 255, .74);
+    --glass: rgba(255, 255, 255, .7);
+    --text: #202036;
+    --text-secondary: #4f5068;
+    --text-light: #777991;
+    --text-muted: #a5a6b8;
+    --text-white: #fff;
+    --border: rgba(91, 79, 247, .12);
+    --border-light: rgba(91, 79, 247, .08);
+    --border-dark: #d5d3ee;
+    --radius-xs: 8px;
+    --radius-sm: 14px;
+    --radius: 20px;
+    --radius-lg: 24px;
+    --radius-xl: 32px;
+    --radius-round: 999px;
+    --shadow-xs: 0 4px 12px rgba(46, 37, 108, .05);
+    --shadow-sm: 0 10px 24px rgba(46, 37, 108, .08);
+    --shadow: 0 18px 42px rgba(46, 37, 108, .1);
+    --shadow-lg: 0 28px 65px rgba(46, 37, 108, .14);
+    --shadow-xl: 0 36px 90px rgba(46, 37, 108, .18);
+    --glass-shadow: 0 18px 42px rgba(46, 37, 108, .1);
+    --transition-fast: .18s ease;
+    --transition: .28s ease;
+    --transition-slow: .45s ease;
+    --space-xs: 8px;
+    --space-sm: 16px;
+    --space-md: 24px;
+    --space-lg: 32px;
+    --space-xl: 40px;
+    --space-2xl: 48px;
+    --space-3xl: 64px;
+    --container-width: 1440px;
+    --header-height: 76px;
+    --sidebar-width: 272px;
+    --z-dropdown: 100;
+    --z-sticky: 500;
+    --z-fixed: 700;
+    --z-modal: 1000;
+    --z-toast: 1200;
+    --z-tooltip: 1300;
+    --gradient-primary: linear-gradient(135deg, #5b4ff7 0%, #7c3aed 100%);
+    --gradient-soft: linear-gradient(135deg, #f0efff 0%, #faf5ff 100%);
+    --gradient-success: linear-gradient(135deg, #22c55e, #16a34a);
+    --gradient-danger: linear-gradient(135deg, #ef4444, #dc2626);
 }

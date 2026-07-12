@@ -1,6 +1,6 @@
 import api from "../api/api.js";
 import { showToast } from "./Toast.js";
-import { loadProfile } from "./ProfileView.js";
+import { loadProfile } from "./ProfileManager.js";
 
 export function openEditProfile(person) {
 
