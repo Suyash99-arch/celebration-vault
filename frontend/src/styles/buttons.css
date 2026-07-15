@@ -1,1 +1,452 @@
-.primary-btn, .hero-btn, .save-premium-btn, .btn-primary { display: inline-flex; align-items: center; justify-content: center; gap: 8px; min-height: 44px; padding: 0 17px; color: #fff; background: var(--gradient-primary); border-radius: 13px; box-shadow: 0 10px 20px rgba(91,79,247,.22); font-size: 12px; font-weight: 750; transition: transform .28s ease, box-shadow .28s ease, filter .28s ease; }.primary-btn:hover, .hero-btn:hover, .save-premium-btn:hover, .btn-primary:hover { filter: brightness(1.04); box-shadow: 0 15px 27px rgba(91,79,247,.3); transform: translateY(-2px); }.secondary-btn, .back-btn, .btn-google { display: inline-flex; align-items: center; justify-content: center; gap: 8px; min-height: 42px; padding: 0 15px; color: var(--text-secondary); background: rgba(255,255,255,.72); border: 1px solid var(--border); border-radius: 13px; font-size: 12px; font-weight: 700; transition: transform .28s ease, background .28s ease, border-color .28s ease, box-shadow .28s ease; }.secondary-btn:hover, .back-btn:hover, .btn-google:hover { background: #fff; border-color: rgba(91,79,247,.25); box-shadow: var(--shadow-xs); transform: translateY(-2px); }.danger-btn { display: inline-flex; align-items: center; justify-content: center; min-height: 42px; padding: 0 15px; color: #fff; background: var(--danger); border-radius: 13px; box-shadow: 0 10px 20px rgba(239,68,68,.18); font-size: 12px; font-weight: 750; transition: transform .28s ease, box-shadow .28s ease, background .28s ease; }.danger-btn:hover { background: #dc2626; box-shadow: 0 14px 25px rgba(239,68,68,.26); transform: translateY(-2px); }.button-row, .form-actions { display: flex; align-items: center; justify-content: flex-end; gap: 12px; margin-top: 24px; padding-top: 20px; border-top: 1px solid var(--border-light); }
+/* ==========================================================
+   PREMIUM BUTTON SYSTEM
+   Celebration Vault
+========================================================== */
+
+
+/* ==========================================================
+   PRIMARY BUTTONS
+========================================================== */
+
+.primary-btn,
+.hero-btn,
+.save-premium-btn,
+.btn-primary{
+
+    position:relative;
+
+    display:inline-flex;
+
+    align-items:center;
+
+    justify-content:center;
+
+    gap:10px;
+
+    min-height:56px;
+
+    padding:0 30px;
+
+    overflow:hidden;
+
+    border:none;
+
+    border-radius:18px;
+
+    cursor:pointer;
+
+    color:#ffffff;
+
+    background:
+        linear-gradient(
+            135deg,
+            #4F46E5 0%,
+            #5B4FF7 45%,
+            #7C3AED 100%
+        );
+
+    font-size:14px;
+
+    font-weight:700;
+
+    letter-spacing:.02em;
+
+    box-shadow:
+
+        0 14px 30px rgba(91,79,247,.22),
+
+        0 28px 60px rgba(91,79,247,.12),
+
+        inset 0 1px rgba(255,255,255,.18);
+
+    transition:
+
+        transform .35s cubic-bezier(.22,1,.36,1),
+
+        box-shadow .35s cubic-bezier(.22,1,.36,1),
+
+        filter .35s;
+
+}
+
+
+/* Shine Effect */
+
+.primary-btn::before,
+.hero-btn::before,
+.save-premium-btn::before,
+.btn-primary::before{
+
+    content:"";
+
+    position:absolute;
+
+    top:0;
+
+    left:-120%;
+
+    width:60%;
+
+    height:100%;
+
+    background:
+
+        linear-gradient(
+
+            transparent,
+
+            rgba(255,255,255,.45),
+
+            transparent
+
+        );
+
+    transform:skewX(-25deg);
+
+    transition:left .8s;
+
+}
+
+
+/* Hover */
+
+.primary-btn:hover,
+.hero-btn:hover,
+.save-premium-btn:hover,
+.btn-primary:hover{
+
+    transform:
+
+        translateY(-5px)
+
+        scale(1.03);
+
+    filter:brightness(1.05);
+
+    box-shadow:
+
+        0 22px 45px rgba(91,79,247,.28),
+
+        0 42px 85px rgba(91,79,247,.16);
+
+}
+
+.primary-btn:hover::before,
+.hero-btn:hover::before,
+.save-premium-btn:hover::before,
+.btn-primary:hover::before{
+
+    left:150%;
+
+}
+
+.primary-btn:active,
+.hero-btn:active,
+.save-premium-btn:active,
+.btn-primary:active{
+
+    transform:scale(.97);
+
+}
+
+
+/* ==========================================================
+   SECONDARY BUTTONS
+========================================================== */
+
+.secondary-btn,
+.back-btn,
+.btn-google{
+
+    display:inline-flex;
+
+    align-items:center;
+
+    justify-content:center;
+
+    gap:10px;
+
+    min-height:54px;
+
+    padding:0 28px;
+
+    border-radius:18px;
+
+    cursor:pointer;
+
+    border:1px solid rgba(91,79,247,.10);
+
+    background:
+
+        linear-gradient(
+
+            180deg,
+
+            rgba(255,255,255,.96),
+
+            rgba(248,249,255,.90)
+
+        );
+
+    color:var(--text);
+
+    font-size:14px;
+
+    font-weight:700;
+
+    box-shadow:
+
+        inset 0 1px rgba(255,255,255,.85),
+
+        0 10px 25px rgba(20,20,60,.05);
+
+    transition:
+
+        transform .35s cubic-bezier(.22,1,.36,1),
+
+        box-shadow .35s,
+
+        border-color .35s,
+
+        color .35s;
+
+}
+
+.secondary-btn:hover,
+.back-btn:hover,
+.btn-google:hover{
+
+    transform:
+
+        translateY(-4px);
+
+    color:var(--primary);
+
+    border-color:rgba(91,79,247,.20);
+
+    box-shadow:
+
+        0 18px 35px rgba(91,79,247,.10);
+
+}
+
+
+/* ==========================================================
+   GOOGLE BUTTON
+========================================================== */
+
+.btn-google{
+
+    width:100%;
+
+}
+
+
+/* ==========================================================
+   DANGER BUTTON
+========================================================== */
+
+.danger-btn{
+
+    position:relative;
+
+    display:inline-flex;
+
+    align-items:center;
+
+    justify-content:center;
+
+    gap:10px;
+
+    min-height:54px;
+
+    padding:0 28px;
+
+    border:none;
+
+    border-radius:18px;
+
+    cursor:pointer;
+
+    color:#ffffff;
+
+    background:
+
+        linear-gradient(
+
+            135deg,
+
+            #EF4444,
+
+            #DC2626
+
+        );
+
+    font-size:14px;
+
+    font-weight:700;
+
+    box-shadow:
+
+        0 14px 28px rgba(239,68,68,.18);
+
+    transition:
+
+        transform .35s cubic-bezier(.22,1,.36,1),
+
+        box-shadow .35s,
+
+        filter .35s;
+
+}
+
+.danger-btn:hover{
+
+    transform:
+
+        translateY(-4px)
+
+        scale(1.03);
+
+    filter:brightness(1.04);
+
+    box-shadow:
+
+        0 22px 45px rgba(239,68,68,.24);
+
+}
+
+.danger-btn:active{
+
+    transform:scale(.97);
+
+}
+
+
+/* ==========================================================
+   SMALL BUTTON
+========================================================== */
+
+.btn-sm{
+
+    min-height:42px;
+
+    padding:0 18px;
+
+    font-size:13px;
+
+}
+
+
+/* ==========================================================
+   LARGE BUTTON
+========================================================== */
+
+.btn-lg{
+
+    min-height:62px;
+
+    padding:0 36px;
+
+    font-size:16px;
+
+}
+
+
+/* ==========================================================
+   ICON BUTTON
+========================================================== */
+
+.icon-btn{
+
+    display:grid;
+
+    place-items:center;
+
+    width:52px;
+
+    height:52px;
+
+    border-radius:16px;
+
+    border:1px solid rgba(91,79,247,.08);
+
+    background:white;
+
+    transition:
+
+        transform .35s,
+
+        box-shadow .35s;
+
+}
+
+.icon-btn:hover{
+
+    transform:translateY(-4px);
+
+    box-shadow:
+
+        0 18px 35px rgba(91,79,247,.10);
+
+}
+
+
+/* ==========================================================
+   FORM ACTIONS
+========================================================== */
+
+.button-row,
+.form-actions{
+
+    display:flex;
+
+    align-items:center;
+
+    justify-content:flex-end;
+
+    flex-wrap:wrap;
+
+    gap:16px;
+
+    margin-top:32px;
+
+    padding-top:24px;
+
+    border-top:1px solid rgba(91,79,247,.08);
+
+}
+
+
+/* ==========================================================
+   DISABLED
+========================================================== */
+
+button:disabled{
+
+    opacity:.55;
+
+    cursor:not-allowed;
+
+    transform:none !important;
+
+    box-shadow:none !important;
+
+}
+
+
+/* ==========================================================
+   FOCUS
+========================================================== */
+
+button:focus-visible{
+
+    outline:none;
+
+    box-shadow:
+
+        0 0 0 4px rgba(91,79,247,.15),
+
+        0 18px 35px rgba(91,79,247,.15);
+
+}

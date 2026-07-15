@@ -60,6 +60,7 @@ export function MemberCard(person) {
 
                 <button
                     class="delete-btn"
+                    data-id="${person.id}"
                     data-name="${person.name}">
 
                     Delete

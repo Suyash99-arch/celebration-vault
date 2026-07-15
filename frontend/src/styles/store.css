@@ -1,1 +1,528 @@
-.family-page { display: grid; gap: 22px; }.family-toolbar { display: flex; align-items: center; gap: 10px; padding: 10px; background: var(--card); border: 1px solid rgba(255,255,255,.75); border-radius: 18px; box-shadow: var(--shadow-xs); }.search-member-box { display: flex; flex: 1; align-items: center; gap: 8px; min-width: 160px; padding: 0 12px; background: rgba(255,255,255,.72); border: 1px solid var(--border); border-radius: 12px; color: var(--text-light); }.search-member-box input { min-height: 38px; background: transparent; border: 0; }.family-toolbar select { width: auto; min-height: 40px; }.family-stats .stat-card { min-height: 105px; }.family-stats .stat-card .icon { display: grid; flex: 0 0 auto; width: 36px; height: 36px; place-items: center; background: #ecebff; border-radius: 12px; }.family-stats .stat-card h2 { font-size: 27px; }.family-stats .stat-card p { margin-top: 3px; font-size: 10px; font-weight: 700; }.members-section-header { display: flex; align-items: end; justify-content: space-between; gap: 16px; margin-top: 8px; }.members-section-header h2 { font-size: 21px; letter-spacing: -.04em; }.members-section-header p { margin-top: 4px; font-size: 12px; }.member-count-chip { padding: 7px 10px; color: var(--primary); background: #ecebff; border-radius: 999px; font-size: 10px; font-weight: 800; white-space: nowrap; }.family-page .profile-grid { grid-template-columns: repeat(3, minmax(0,1fr)); margin-top: 0; }.profile-card { position: relative; padding: 23px; overflow: hidden; background: var(--card); border: 1px solid rgba(255,255,255,.8); border-radius: 20px; box-shadow: var(--shadow-xs); text-align: center; transition: transform .3s ease, box-shadow .3s ease; }.profile-card::before { position: absolute; top: 0; right: 22px; left: 22px; height: 3px; background: var(--gradient-primary); border-radius: 0 0 999px 999px; content: ""; }.profile-card:hover { box-shadow: var(--shadow); transform: translateY(-4px); }.profile-avatar { display: grid; width: 52px; height: 52px; margin: 0 auto 12px; place-items: center; color: var(--primary); background: #ecebff; border-radius: 17px; font-size: 20px; font-weight: 800; }.profile-card h2 { font-size: 16px; }.profile-card .relationship { display: block; margin-top: 4px; color: var(--primary); font-size: 11px; font-weight: 700; }.profile-info { display: grid; gap: 6px; margin: 17px 0; padding: 13px; color: var(--text-secondary); background: rgba(91,79,247,.045); border-radius: 12px; font-size: 11px; text-align: left; }.profile-card .profile-actions { display: grid; grid-template-columns: repeat(3,1fr); gap: 6px; margin: 0; }.view-btn, .edit-btn, .delete-btn { min-height: 33px; border-radius: 9px; font-size: 10px; font-weight: 750; }.view-btn { color: #fff; background: var(--primary); }.edit-btn { color: var(--primary); background: #ecebff; }.delete-btn { color: var(--danger); background: #fff0f1; }.view-btn:hover, .edit-btn:hover, .delete-btn:hover { filter: brightness(.97); transform: translateY(-1px); }
+/* ==========================================================
+   FAMILY PAGE
+========================================================== */
+
+.family-page{
+
+    display:grid;
+
+    gap:32px;
+
+}
+
+
+/* ==========================================================
+   TOOLBAR
+========================================================== */
+
+.family-toolbar{
+
+    display:flex;
+
+    align-items:center;
+
+    gap:16px;
+
+    padding:18px;
+
+    border-radius:24px;
+
+    background:
+
+        linear-gradient(
+            180deg,
+            rgba(255,255,255,.97),
+            rgba(248,249,255,.93)
+        );
+
+    border:1px solid rgba(91,79,247,.08);
+
+    box-shadow:
+
+        0 14px 35px rgba(91,79,247,.06),
+
+        inset 0 1px rgba(255,255,255,.85);
+
+}
+
+
+/* ==========================================================
+   SEARCH BOX
+========================================================== */
+
+.search-member-box{
+
+    display:flex;
+
+    align-items:center;
+
+    flex:1;
+
+    gap:12px;
+
+    min-width:220px;
+
+    min-height:58px;
+
+    padding:0 18px;
+
+    border-radius:18px;
+
+    background:white;
+
+    border:1px solid rgba(91,79,247,.08);
+
+    transition:
+
+        border-color .35s,
+
+        box-shadow .35s,
+
+        transform .35s;
+
+}
+
+.search-member-box:hover{
+
+    transform:translateY(-2px);
+
+    border-color:rgba(91,79,247,.16);
+
+    box-shadow:
+
+        0 15px 35px rgba(91,79,247,.08);
+
+}
+
+.search-member-box input{
+
+    flex:1;
+
+    min-height:56px;
+
+    background:transparent;
+
+    border:none;
+
+    font-size:14px;
+
+}
+
+.search-member-box input:focus{
+
+    outline:none;
+
+}
+
+.family-toolbar select{
+
+    width:auto;
+
+    min-height:56px;
+
+    padding:0 18px;
+
+    border-radius:16px;
+
+}
+
+
+/* ==========================================================
+   STATS
+========================================================== */
+
+.family-stats .stat-card{
+
+    min-height:140px;
+
+}
+
+.family-stats .stat-card .icon{
+
+    display:grid;
+
+    place-items:center;
+
+    width:56px;
+
+    height:56px;
+
+    border-radius:18px;
+
+    background:
+
+        linear-gradient(
+            135deg,
+            #EEF2FF,
+            #E8E5FF
+        );
+
+    color:var(--primary);
+
+    font-size:22px;
+
+}
+
+.family-stats .stat-card h2{
+
+    font-size:42px;
+
+    font-weight:800;
+
+}
+
+.family-stats .stat-card p{
+
+    margin-top:8px;
+
+    color:var(--text-light);
+
+    font-size:13px;
+
+    font-weight:600;
+
+}
+
+
+/* ==========================================================
+   SECTION HEADER
+========================================================== */
+
+.members-section-header{
+
+    display:flex;
+
+    justify-content:space-between;
+
+    align-items:flex-end;
+
+    gap:20px;
+
+}
+
+.members-section-header h2{
+
+    font-size:34px;
+
+    font-weight:800;
+
+    letter-spacing:-.05em;
+
+}
+
+.members-section-header p{
+
+    margin-top:8px;
+
+    color:var(--text-light);
+
+    font-size:14px;
+
+}
+
+.member-count-chip{
+
+    padding:10px 16px;
+
+    border-radius:999px;
+
+    background:#EEF2FF;
+
+    color:var(--primary);
+
+    font-size:12px;
+
+    font-weight:700;
+
+}
+
+
+/* ==========================================================
+   GRID
+========================================================== */
+
+.family-page .profile-grid{
+
+    display:grid;
+
+    grid-template-columns:repeat(3,minmax(0,1fr));
+
+    gap:24px;
+
+    margin-top:0;
+
+}
+
+
+/* ==========================================================
+   PROFILE CARD
+========================================================== */
+
+.profile-card{
+
+    position:relative;
+
+    overflow:hidden;
+
+    padding:30px;
+
+    text-align:center;
+
+    border-radius:28px;
+
+    background:
+
+        linear-gradient(
+            180deg,
+            rgba(255,255,255,.98),
+            rgba(248,249,255,.94)
+        );
+
+    border:1px solid rgba(91,79,247,.08);
+
+    box-shadow:
+
+        0 15px 35px rgba(91,79,247,.06),
+
+        inset 0 1px rgba(255,255,255,.90);
+
+    transition:
+
+        transform .4s cubic-bezier(.22,1,.36,1),
+
+        box-shadow .4s,
+
+        border-color .4s;
+
+}
+
+.profile-card::before{
+
+    content:"";
+
+    position:absolute;
+
+    left:24px;
+
+    right:24px;
+
+    top:0;
+
+    height:4px;
+
+    border-radius:999px;
+
+    background:var(--gradient-primary);
+
+}
+
+.profile-card:hover{
+
+    transform:
+
+        translateY(-10px)
+
+        scale(1.02);
+
+    border-color:rgba(91,79,247,.16);
+
+    box-shadow:
+
+        0 28px 55px rgba(91,79,247,.12);
+
+}
+
+
+/* ==========================================================
+   AVATAR
+========================================================== */
+
+.profile-avatar{
+
+    display:grid;
+
+    place-items:center;
+
+    width:72px;
+
+    height:72px;
+
+    margin:0 auto 18px;
+
+    border-radius:22px;
+
+    background:
+
+        linear-gradient(
+            135deg,
+            #EEF2FF,
+            #E9E5FF
+        );
+
+    color:var(--primary);
+
+    font-size:28px;
+
+    font-weight:800;
+
+    transition:.35s;
+
+}
+
+.profile-card:hover .profile-avatar{
+
+    transform:
+
+        rotate(-8deg)
+
+        scale(1.08);
+
+}
+
+
+/* ==========================================================
+   TEXT
+========================================================== */
+
+.profile-card h2{
+
+    font-size:20px;
+
+    font-weight:800;
+
+}
+
+.profile-card .relationship{
+
+    display:inline-block;
+
+    margin-top:8px;
+
+    padding:6px 14px;
+
+    border-radius:999px;
+
+    background:#EEF2FF;
+
+    color:var(--primary);
+
+    font-size:12px;
+
+    font-weight:700;
+
+}
+
+
+/* ==========================================================
+   INFO
+========================================================== */
+
+.profile-info{
+
+    display:grid;
+
+    gap:10px;
+
+    margin:24px 0;
+
+    padding:18px;
+
+    text-align:left;
+
+    border-radius:18px;
+
+    background:
+
+        linear-gradient(
+            180deg,
+            rgba(91,79,247,.05),
+            rgba(91,79,247,.02)
+        );
+
+    border:1px solid rgba(91,79,247,.06);
+
+    color:var(--text-light);
+
+    font-size:13px;
+
+}
+
+
+/* ==========================================================
+   ACTIONS
+========================================================== */
+
+.profile-card .profile-actions{
+
+    display:grid;
+
+    grid-template-columns:repeat(3,1fr);
+
+    gap:10px;
+
+}
+
+
+/* ==========================================================
+   BUTTONS
+========================================================== */
+
+.view-btn,
+.edit-btn,
+.delete-btn{
+
+    min-height:42px;
+
+    border-radius:14px;
+
+    font-size:12px;
+
+    font-weight:700;
+
+    transition:
+
+        transform .35s,
+
+        box-shadow .35s,
+
+        filter .35s;
+
+}
+
+.view-btn{
+
+    color:white;
+
+    background:var(--gradient-primary);
+
+}
+
+.edit-btn{
+
+    color:var(--primary);
+
+    background:#EEF2FF;
+
+}
+
+.delete-btn{
+
+    color:#DC2626;
+
+    background:#FFF1F2;
+
+}
+
+.view-btn:hover,
+.edit-btn:hover,
+.delete-btn:hover{
+
+    transform:
+
+        translateY(-3px);
+
+    box-shadow:
+
+        0 12px 25px rgba(91,79,247,.10);
+
+}

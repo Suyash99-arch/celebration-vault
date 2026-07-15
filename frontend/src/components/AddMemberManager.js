@@ -53,20 +53,15 @@ function bindSave(){
 
 
     const button =
-
         document.getElementById(
             "saveBtn"
         );
 
-
-
-    if(!button)
+    if (!button) {
         return;
+    }
 
-
-
-
-    button.onclick = saveMember;
+    button.addEventListener("click", saveMember);
 
 
 }

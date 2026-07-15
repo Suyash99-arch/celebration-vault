@@ -6,6 +6,11 @@ export function ProfilePage() {
 
     <div class="profile-page-header">
 
+        <div class="profile-page-meta">
+            <span class="page-badge">Profile</span>
+            <h1>Member Profile</h1>
+            <p>View celebration details and personal information with our premium profile experience.</p>
+        </div>
         <button
             id="backBirthdays"
             class="secondary-btn"

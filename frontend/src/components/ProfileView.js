@@ -76,13 +76,17 @@ export function renderProfileView(person){
     <div class="profile-body">
 
 
-        <h1 class="profile-name">
+        <div class="profile-intro">
+
+            <div class="profile-intro-copy">
+
+                <h1 class="profile-name">
 
 
-            ${person.name}
+                    ${person.name}
 
 
-        </h1>
+                </h1>
 
 
 
@@ -100,11 +104,25 @@ export function renderProfileView(person){
 
 
 
-        <div class="profile-highlight">
+                <div class="profile-highlight">
 
 
-            🎂 ${person.days_left || "No upcoming birthday"}
+                    🎂 ${person.days_left || "No upcoming birthday"}
 
+
+                </div>
+
+            </div>
+
+            <div class="profile-summary-grid">
+
+                ${renderStatBox("🎈","Age", cleanAge(person.age))}
+
+                ${renderStatBox("⏳","Next Birthday", person.days_left || "-")}
+
+                ${renderStatBox("💫","Important", person.important ? "Yes" : "No")}
+
+            </div>
 
         </div>
 

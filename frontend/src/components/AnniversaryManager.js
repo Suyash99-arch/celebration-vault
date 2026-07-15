@@ -1,8 +1,5 @@
 import api from "../api/api.js";
 import { showToast } from "./Toast.js";
-import { navigate } from "../router/router.js";
-
-
 
 /* ==========================================================
    INITIALIZE
@@ -23,6 +20,16 @@ export function initializeAnniversary() {
     loadAnniversaries();
 
     loadTodayAnniversary();
+
+    // If a specific anniversary id was set (from dashboard), open it for editing
+    const editId = sessionStorage.getItem('anniversaryEditId');
+    if (editId) {
+        // remove the flag and open edit mode
+        sessionStorage.removeItem('anniversaryEditId');
+        setTimeout(() => {
+            editAnniversary(editId);
+        }, 300);
+    }
 
 }
 
@@ -145,143 +152,75 @@ function anniversaryCard(item){
         SAVE ANNIVERSARY
 ========================================== */
 
-export async function saveAnniversary(){
+function getFieldValue(id) {
+    return document.getElementById(id)?.value.trim() || "";
+}
 
-    const person1 =
-        document.getElementById("person1").value.trim();
+function setFieldValue(id, value) {
+    const field = document.getElementById(id);
+    if (field) {
+        field.value = value;
+    }
+}
 
-    const person2 =
-        document.getElementById("person2").value.trim();
+function setCheckboxValue(id, checked) {
+    const field = document.getElementById(id);
+    if (field) {
+        field.checked = checked;
+    }
+}
 
-    const date =
-        document.getElementById("anniversaryDate").value;
+function resetAnniversaryForm() {
+    setFieldValue("person1", "");
+    setFieldValue("person2", "");
+    setFieldValue("anniversaryDate", "");
+    setFieldValue("relationship", "Marriage");
+    setFieldValue("notes", "");
+    setCheckboxValue("important", false);
+}
 
-    const relationship =
-        document.getElementById("relationship").value;
+export async function saveAnniversary() {
+    const person1 = getFieldValue("person1");
+    const person2 = getFieldValue("person2");
+    const date = getFieldValue("anniversaryDate");
+    const relationship = getFieldValue("relationship");
+    const notes = getFieldValue("notes");
+    const important = document.getElementById("important")?.checked || false;
 
-    const notes =
-        document.getElementById("notes").value.trim();
-
-    const important =
-        document.getElementById("important").checked;
-
-    if(
-
-        !person1 ||
-
-        !person2 ||
-
-        !date
-
-    ){
-
-        showToast(
-
-            "Please fill all required fields.",
-
-            "error"
-
-        );
-
+    if (!person1 || !person2 || !date) {
+        showToast("Please fill all required fields.", "error");
         return;
-
     }
 
-    if(
-
-        person1.toLowerCase()===
-
-        person2.toLowerCase()
-
-    ){
-
-        showToast(
-
-            "Both names cannot be the same.",
-
-            "error"
-
-        );
-
+    if (person1.toLowerCase() === person2.toLowerCase()) {
+        showToast("Both names cannot be the same.", "error");
         return;
-
     }
 
-    try{
+    try {
+        const response = await api.post("/save-anniversary", {
+            id: window.currentAnniversaryId || null,
+            person1,
+            person2,
+            date,
+            relationship,
+            notes,
+            important
+        });
 
-        const response = await api.post(
-
-    "/save-anniversary",
-
-    {
-
-        id: window.currentAnniversaryId || null,
-
-        person1,
-
-        person2,
-
-        date,
-
-        relationship,
-
-        notes,
-
-        important
-
-    }
-
-);
-
-        showToast(
-
-            response.data.message ||
-
-            "Anniversary saved successfully.",
-
-            "success"
-
-        );
-
+        showToast(response.data.message || "Anniversary saved successfully.", "success");
         window.currentAnniversaryId = null;
-
-       window.currentAnniversaryId = null;
-
-loadAnniversaries();
-
-loadTodayAnniversary();
-
-document.getElementById("person1").value = "";
-document.getElementById("person2").value = "";
-document.getElementById("anniversaryDate").value = "";
-document.getElementById("relationship").value = "Marriage";
-document.getElementById("notes").value = "";
-document.getElementById("important").checked = false;
-
-showToast(
-    response.data.message ||
-    "Anniversary saved successfully.",
-    "success"
-);
-
-    }
-
-    catch(error){
-
+        resetAnniversaryForm();
+        await loadAnniversaries();
+        await loadTodayAnniversary();
+    } catch (error) {
         console.error(error);
-
         showToast(
-
             error.response?.data?.message ||
-
             "Unable to save anniversary.",
-
             "error"
-
         );
-
     }
-
 }
 
 /* ==========================================

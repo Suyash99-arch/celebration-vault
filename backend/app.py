@@ -1,4 +1,10 @@
-from unittest import result
+import os
+import sys
+
+# Ensure backend package modules import correctly regardless of CWD
+BASE_DIR = os.path.dirname(os.path.abspath(__file__))
+if BASE_DIR not in sys.path:
+    sys.path.insert(0, BASE_DIR)
 
 from flask import Flask, jsonify, request, send_file
 from flask_cors import CORS
@@ -14,7 +20,8 @@ from config import (
     HOST,
     PORT,
     DEBUG,
-    JWT_SECRET_KEY
+    JWT_SECRET_KEY,
+    JWT_ACCESS_TOKEN_EXPIRES
 )
 
 from database import (
@@ -55,10 +62,11 @@ from auth import (
 
 app = Flask(__name__)
 app.config["JWT_SECRET_KEY"] = JWT_SECRET_KEY
-
-print("JWT SECRET =", app.config["JWT_SECRET_KEY"])
-
-app.config["JWT_SECRET_KEY"] = JWT_SECRET_KEY
+app.config["JWT_ACCESS_TOKEN_EXPIRES"] = JWT_ACCESS_TOKEN_EXPIRES
+app.config["JWT_TOKEN_LOCATION"] = ["headers"]
+app.config["JWT_HEADER_NAME"] = "Authorization"
+app.config["JWT_HEADER_TYPE"] = "Bearer"
+app.config["CORS_HEADERS"] = "Content-Type,Authorization"
 
 jwt = JWTManager(app)
 
@@ -111,25 +119,20 @@ def expired(jwt_header, jwt_payload):
 # =====================================================
 
 CORS(
-
     app,
-
     resources={
-
         r"/*": {
-
             "origins": [
-
                 "http://localhost:5173",
-
-                "http://localhost:5174"
-
+                "http://localhost:5174",
+                "http://127.0.0.1:5173",
+                "http://127.0.0.1:5174"
             ]
-
         }
-
-    }
-
+    },
+    supports_credentials=True,
+    allow_headers=["Content-Type", "Authorization"],
+    methods=["GET", "POST", "PUT", "DELETE", "OPTIONS"]
 )
 
 # =====================================================
@@ -440,42 +443,29 @@ def profile(profile_id):
 
 @app.route("/update/<int:profile_id>", methods=["PUT"])
 @jwt_required()
-def update(profile_id):
-
+def update_profile_route(profile_id):
     try:
-
         data = request.get_json()
-
         if not data:
-
             return jsonify({
-
                 "success": False,
-
                 "message": "No data received"
-
             }), 400
 
-        data["id"] = profile_id
-
-        data["user_id"] = int(get_jwt_identity())
-
-        result = save_birthday(data)
+        result = update_profile(
+            int(get_jwt_identity()),
+            profile_id,
+            data
+        )
 
         status = 200 if result["success"] else 400
-
         return jsonify(result), status
 
     except Exception as e:
-
         print("UPDATE ERROR:", e)
-
         return jsonify({
-
             "success": False,
-
             "message": str(e)
-
         }), 500
     
 
@@ -920,26 +910,19 @@ def import_database():
 
 @app.route("/register", methods=["POST"])
 def register():
-
     data = request.get_json()
-
     if not data:
-
         return jsonify({
-
             "success": False,
-
             "message": "No data received."
-
-        }),400
+        }), 400
 
     result = register_user(data)
+    print("REGISTER RESULT:", result)
 
     if result["success"]:
-
-        return jsonify(result),201
-
-    return jsonify(result),400
+        return jsonify(result), 201
+    return jsonify(result), 400
 
 # =====================================================
 # LOGIN
@@ -947,26 +930,19 @@ def register():
 
 @app.route("/login", methods=["POST"])
 def login():
-
     data = request.get_json()
-
     if not data:
-
         return jsonify({
-
-            "success":False,
-
-            "message":"No data received."
-
-        }),400
+            "success": False,
+            "message": "No data received."
+        }), 400
 
     result = login_user(data)
+    print("LOGIN RESULT:", result)
 
     if result["success"]:
-
         return jsonify(result)
-
-    return jsonify(result),401
+    return jsonify(result), 401
 
 
 

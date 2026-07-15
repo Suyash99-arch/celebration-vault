@@ -1,58 +1,255 @@
-:root {
-    --primary: #5b4ff7;
-    --primary-dark: #493bd8;
-    --primary-light: #a9a3ff;
-    --secondary: #7c3aed;
-    --success: #16a34a;
-    --warning: #f59e0b;
-    --danger: #e5484d;
-    --info: #2563eb;
-    --background: #f8fafc;
-    --background-secondary: #f0efff;
-    --surface: #ffffff;
-    --card: rgba(255, 255, 255, .74);
-    --glass: rgba(255, 255, 255, .7);
-    --text: #202036;
-    --text-secondary: #4f5068;
-    --text-light: #777991;
-    --text-muted: #a5a6b8;
-    --text-white: #fff;
-    --border: rgba(91, 79, 247, .12);
-    --border-light: rgba(91, 79, 247, .08);
-    --border-dark: #d5d3ee;
-    --radius-xs: 8px;
-    --radius-sm: 14px;
-    --radius: 20px;
-    --radius-lg: 24px;
-    --radius-xl: 32px;
-    --radius-round: 999px;
-    --shadow-xs: 0 4px 12px rgba(46, 37, 108, .05);
-    --shadow-sm: 0 10px 24px rgba(46, 37, 108, .08);
-    --shadow: 0 18px 42px rgba(46, 37, 108, .1);
-    --shadow-lg: 0 28px 65px rgba(46, 37, 108, .14);
-    --shadow-xl: 0 36px 90px rgba(46, 37, 108, .18);
-    --glass-shadow: 0 18px 42px rgba(46, 37, 108, .1);
-    --transition-fast: .18s ease;
-    --transition: .28s ease;
-    --transition-slow: .45s ease;
-    --space-xs: 8px;
-    --space-sm: 16px;
-    --space-md: 24px;
-    --space-lg: 32px;
-    --space-xl: 40px;
-    --space-2xl: 48px;
-    --space-3xl: 64px;
-    --container-width: 1440px;
-    --header-height: 76px;
-    --sidebar-width: 272px;
-    --z-dropdown: 100;
-    --z-sticky: 500;
-    --z-fixed: 700;
-    --z-modal: 1000;
-    --z-toast: 1200;
-    --z-tooltip: 1300;
-    --gradient-primary: linear-gradient(135deg, #5b4ff7 0%, #7c3aed 100%);
-    --gradient-soft: linear-gradient(135deg, #f0efff 0%, #faf5ff 100%);
-    --gradient-success: linear-gradient(135deg, #22c55e, #16a34a);
-    --gradient-danger: linear-gradient(135deg, #ef4444, #dc2626);
+/* ==========================================================
+   DESIGN SYSTEM
+   Celebration Vault
+========================================================== */
+
+:root{
+
+    /* ==========================================
+       BRAND COLORS
+    ========================================== */
+
+    --primary:#5B4FF7;
+    --primary-dark:#4338CA;
+    --primary-light:#C4B5FD;
+
+    --secondary:#7C3AED;
+    --secondary-light:#A78BFA;
+
+    --success:#16A34A;
+    --warning:#F59E0B;
+    --danger:#EF4444;
+    --info:#2563EB;
+
+    /* ==========================================
+       BACKGROUNDS
+    ========================================== */
+
+    --background:#F8FAFC;
+
+    --background-secondary:#F4F6FF;
+
+    --surface:#FFFFFF;
+
+    --card:
+        rgba(
+            255,
+            255,
+            255,
+            .82
+        );
+
+    --glass:
+        rgba(
+            255,
+            255,
+            255,
+            .72
+        );
+
+    /* ==========================================
+       TEXT
+    ========================================== */
+
+    --text:#151827;
+
+    --text-secondary:#4F5565;
+
+    --text-light:#7C8196;
+
+    --text-muted:#A5ABBC;
+
+    --text-white:#FFFFFF;
+
+    /* ==========================================
+       BORDERS
+    ========================================== */
+
+    --border:
+        rgba(
+            91,
+            79,
+            247,
+            .12
+        );
+
+    --border-light:
+        rgba(
+            91,
+            79,
+            247,
+            .08
+        );
+
+    --border-dark:#D8DCF1;
+
+        /* ==========================================
+       BORDER RADIUS
+    ========================================== */
+
+    --radius-xs:10px;
+
+    --radius-sm:16px;
+
+    --radius:22px;
+
+    --radius-lg:28px;
+
+    --radius-xl:36px;
+
+    --radius-round:999px;
+
+    /* ==========================================
+       PREMIUM SHADOWS
+    ========================================== */
+
+    --shadow-xs:
+        0 6px 18px
+        rgba(15,23,42,.05);
+
+    --shadow-sm:
+        0 12px 28px
+        rgba(15,23,42,.07);
+
+    --shadow:
+        0 20px 48px
+        rgba(15,23,42,.09);
+
+    --shadow-lg:
+        0 32px 72px
+        rgba(15,23,42,.12);
+
+    --shadow-xl:
+        0 42px 110px
+        rgba(15,23,42,.16);
+
+    --glass-shadow:
+        0 22px 60px
+        rgba(15,23,42,.10);
+
+    /* ==========================================
+       TRANSITIONS
+    ========================================== */
+
+    --transition-fast:
+        .18s cubic-bezier(.2,.8,.2,1);
+
+    --transition:
+        .32s cubic-bezier(.2,.8,.2,1);
+
+    --transition-slow:
+        .55s cubic-bezier(.2,.8,.2,1);
+
+    /* ==========================================
+       SPACING
+    ========================================== */
+
+    --space-xs:8px;
+
+    --space-sm:16px;
+
+    --space-md:24px;
+
+    --space-lg:36px;
+
+    --space-xl:48px;
+
+    --space-2xl:64px;
+
+    --space-3xl:80px;
+
+        /* ==========================================
+       LAYOUT
+    ========================================== */
+
+    --container-width:1480px;
+
+    --header-height:80px;
+
+    --sidebar-width:288px;
+
+    /* ==========================================
+       Z-INDEX
+    ========================================== */
+
+    --z-dropdown:100;
+
+    --z-sticky:500;
+
+    --z-fixed:700;
+
+    --z-modal:1000;
+
+    --z-toast:1200;
+
+    --z-tooltip:1300;
+
+    /* ==========================================
+       PREMIUM GRADIENTS
+    ========================================== */
+
+    --gradient-primary:
+        linear-gradient(
+            135deg,
+            #5B4FF7 0%,
+            #6D4CFF 45%,
+            #7C3AED 100%
+        );
+
+    --gradient-soft:
+        linear-gradient(
+            135deg,
+            #F5F7FF 0%,
+            #F4F1FF 50%,
+            #FAF8FF 100%
+        );
+
+    --gradient-success:
+        linear-gradient(
+            135deg,
+            #22C55E,
+            #16A34A
+        );
+
+    --gradient-danger:
+        linear-gradient(
+            135deg,
+            #EF4444,
+            #DC2626
+        );
+
+    /* ==========================================
+       EXTRA PREMIUM GRADIENTS
+       (Available for future pages)
+    ========================================== */
+
+    --gradient-card:
+        linear-gradient(
+            180deg,
+            rgba(255,255,255,.96),
+            rgba(250,251,255,.90)
+        );
+
+    --gradient-glass:
+        linear-gradient(
+            135deg,
+            rgba(255,255,255,.82),
+            rgba(255,255,255,.66)
+        );
+
+    --gradient-hero:
+        linear-gradient(
+            135deg,
+            #4F46E5 0%,
+            #5B4FF7 35%,
+            #7C3AED 100%
+        );
+
+    --gradient-border:
+        linear-gradient(
+            135deg,
+            rgba(91,79,247,.30),
+            rgba(124,58,237,.15)
+        );
+
 }

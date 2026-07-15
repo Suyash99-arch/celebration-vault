@@ -1,1 +1,875 @@
-.settings-page { display: grid; gap: 20px; }.settings-hero { position: relative; overflow: hidden; padding: 34px; color: #fff; background: linear-gradient(120deg,#5145dc,#7c3aed); border-radius: 25px; box-shadow: 0 20px 42px rgba(91,79,247,.24); text-align: center; }.settings-hero::after { position: absolute; width: 260px; height: 260px; top: -130px; right: -60px; border: 1px solid rgba(255,255,255,.15); border-radius: 50%; content: ""; }.settings-avatar { display: grid; width: 66px; height: 66px; margin: 0 auto 12px; place-items: center; color: var(--primary); background: #fff; border-radius: 22px; font-size: 22px; font-weight: 800; }.settings-name { color: #fff; font-size: 25px; }.settings-role { color: rgba(255,255,255,.75); font-size: 12px; }.settings-version { display: inline-flex; margin-top: 14px; padding: 5px 9px; background: rgba(255,255,255,.14); border: 1px solid rgba(255,255,255,.15); border-radius: 999px; font-size: 10px; font-weight: 700; }.settings-stats { display: grid; grid-template-columns: repeat(4,1fr); gap: 13px; }.setting-stat, .setting-card { padding: 20px; background: var(--card); border: 1px solid rgba(255,255,255,.75); border-radius: 18px; box-shadow: var(--shadow-xs); }.setting-stat { text-align: center; }.setting-stat .icon, .setting-icon { display: grid; width: 38px; height: 38px; margin: 0 auto 8px; place-items: center; background: #ecebff; border-radius: 12px; }.setting-stat h2 { font-size: 24px; }.setting-stat p { margin-top: 2px; font-size: 10px; }.settings-grid { display: grid; grid-template-columns: repeat(2,1fr); gap: 14px; }.setting-card { position: relative; min-height: 190px; transition: transform .3s ease, box-shadow .3s ease; }.setting-card:hover { box-shadow: var(--shadow); transform: translateY(-3px); }.setting-icon { margin: 0 0 13px; }.setting-card h3 { font-size: 16px; }.setting-card p { max-width: 430px; margin-top: 6px; font-size: 12px; }.setting-btn { position: absolute; bottom: 18px; left: 20px; min-height: 34px; padding: 0 10px; color: var(--primary); background: #ecebff; border-radius: 9px; font-size: 10px; font-weight: 750; }.setting-btn:hover { background: var(--primary); color: #fff; }
+/* ==========================================================
+   SETTINGS PAGE
+========================================================== */
+
+.settings-page{
+
+    display:grid;
+
+    gap:30px;
+
+}
+
+
+
+/* ==========================================================
+   HERO
+========================================================== */
+
+.settings-hero{
+
+    position:relative;
+
+    overflow:hidden;
+
+    padding:54px;
+
+    color:#FFFFFF;
+
+    background:
+
+        linear-gradient(
+
+            135deg,
+
+            #4338CA 0%,
+
+            #5B4FF7 45%,
+
+            #7C3AED 100%
+
+        );
+
+    border-radius:32px;
+
+    box-shadow:
+
+        0 35px 70px rgba(91,79,247,.28);
+
+    text-align:center;
+
+    isolation:isolate;
+
+}
+
+.settings-hero::before{
+
+    content:"";
+
+    position:absolute;
+
+    inset:0;
+
+    background:
+
+        radial-gradient(
+
+            rgba(255,255,255,.12) 1px,
+
+            transparent 1px
+
+        );
+
+    background-size:22px 22px;
+
+    opacity:.55;
+
+    pointer-events:none;
+
+}
+
+.settings-hero::after{
+
+    content:"";
+
+    position:absolute;
+
+    width:420px;
+
+    height:420px;
+
+    top:-220px;
+
+    right:-120px;
+
+    border-radius:50%;
+
+    background:
+
+        rgba(255,255,255,.10);
+
+}
+
+.settings-avatar{
+
+    display:grid;
+
+    place-items:center;
+
+    width:82px;
+
+    height:82px;
+
+    margin:0 auto 18px;
+
+    background:#FFFFFF;
+
+    color:var(--primary);
+
+    border-radius:26px;
+
+    font-size:30px;
+
+    font-weight:800;
+
+    box-shadow:
+
+        0 20px 40px rgba(0,0,0,.18);
+
+}
+
+.settings-name{
+
+    color:#FFFFFF;
+
+    font-size:34px;
+
+    font-weight:800;
+
+    letter-spacing:-.04em;
+
+}
+
+.settings-role{
+
+    margin-top:8px;
+
+    color:rgba(255,255,255,.82);
+
+    font-size:14px;
+
+}
+
+.settings-version{
+
+    display:inline-flex;
+
+    align-items:center;
+
+    gap:8px;
+
+    margin-top:22px;
+
+    padding:8px 16px;
+
+    background:rgba(255,255,255,.14);
+
+    border:1px solid rgba(255,255,255,.22);
+
+    border-radius:999px;
+
+    backdrop-filter:blur(16px);
+
+    font-size:12px;
+
+    font-weight:700;
+
+}
+
+
+
+/* ==========================================================
+   HERO CONTENT
+========================================================== */
+
+.settings-hero-copy{
+
+    max-width:760px;
+
+    margin:0 auto 26px;
+
+}
+
+.settings-hero-panel{
+
+    display:grid;
+
+    justify-items:center;
+
+}
+
+.settings-hero-card{
+
+    width:min(100%,360px);
+
+    padding:24px;
+
+    border-radius:24px;
+
+    background:rgba(255,255,255,.14);
+
+    border:1px solid rgba(255,255,255,.20);
+
+    backdrop-filter:blur(18px);
+
+    box-shadow:
+
+        0 20px 40px rgba(0,0,0,.14);
+
+}
+
+.hero-label{
+
+    display:inline-flex;
+
+    padding:6px 14px;
+
+    margin-bottom:14px;
+
+    background:rgba(255,255,255,.14);
+
+    border-radius:999px;
+
+    color:#FFFFFF;
+
+    font-size:11px;
+
+    font-weight:700;
+
+    letter-spacing:.08em;
+
+    text-transform:uppercase;
+
+}
+
+/* ==========================================================
+   SETTINGS STATISTICS
+========================================================== */
+
+.settings-stats{
+
+    display:grid;
+
+    grid-template-columns:repeat(4,1fr);
+
+    gap:22px;
+
+}
+
+
+/* ==========================================================
+   STAT CARD
+========================================================== */
+
+.setting-stat{
+
+    position:relative;
+
+    overflow:hidden;
+
+    padding:28px;
+
+    text-align:center;
+
+    background:
+
+        linear-gradient(
+
+            180deg,
+
+            rgba(255,255,255,.94),
+
+            rgba(255,255,255,.82)
+
+        );
+
+    border:1px solid rgba(255,255,255,.90);
+
+    border-radius:24px;
+
+    backdrop-filter:blur(18px);
+
+    box-shadow:
+
+        0 18px 45px rgba(15,23,42,.08);
+
+    transition:
+
+        transform .35s ease,
+
+        box-shadow .35s ease;
+
+}
+
+.setting-stat:hover{
+
+    transform:translateY(-8px);
+
+    box-shadow:
+
+        0 30px 60px rgba(15,23,42,.12);
+
+}
+
+.setting-stat::before{
+
+    content:"";
+
+    position:absolute;
+
+    top:0;
+
+    left:24px;
+
+    right:24px;
+
+    height:4px;
+
+    border-radius:999px;
+
+    background:var(--gradient-primary);
+
+}
+
+.setting-stat .icon{
+
+    display:grid;
+
+    place-items:center;
+
+    width:58px;
+
+    height:58px;
+
+    margin:0 auto 18px;
+
+    color:var(--primary);
+
+    background:
+
+        linear-gradient(
+
+            135deg,
+
+            #EEF2FF,
+
+            #F5F3FF
+
+        );
+
+    border-radius:18px;
+
+    font-size:24px;
+
+    box-shadow:
+
+        inset 0 1px 0 rgba(255,255,255,.90),
+
+        0 12px 24px rgba(91,79,247,.10);
+
+}
+
+.setting-stat h2{
+
+    font-size:38px;
+
+    font-weight:800;
+
+    letter-spacing:-.05em;
+
+}
+
+.setting-stat p{
+
+    margin-top:8px;
+
+    color:var(--text-light);
+
+    font-size:13px;
+
+}
+
+
+
+/* ==========================================================
+   SETTINGS GRID
+========================================================== */
+
+.settings-grid{
+
+    display:grid;
+
+    grid-template-columns:repeat(2,minmax(0,1fr));
+
+    gap:24px;
+
+}
+
+
+
+/* ==========================================================
+   SETTING CARD
+========================================================== */
+
+.setting-card{
+
+    position:relative;
+
+    overflow:hidden;
+
+    min-height:240px;
+
+    padding:32px;
+
+    background:
+
+        linear-gradient(
+
+            180deg,
+
+            rgba(255,255,255,.94),
+
+            rgba(255,255,255,.84)
+
+        );
+
+    border:1px solid rgba(255,255,255,.90);
+
+    border-radius:28px;
+
+    backdrop-filter:blur(20px);
+
+    box-shadow:
+
+        0 18px 45px rgba(15,23,42,.08);
+
+    transition:
+
+        transform .35s ease,
+
+        box-shadow .35s ease;
+
+}
+
+.setting-card:hover{
+
+    transform:translateY(-8px);
+
+    box-shadow:
+
+        0 30px 70px rgba(15,23,42,.12);
+
+}
+
+.setting-card::before{
+
+    content:"";
+
+    position:absolute;
+
+    left:28px;
+
+    right:28px;
+
+    top:0;
+
+    height:4px;
+
+    border-radius:999px;
+
+    background:var(--gradient-primary);
+
+}
+
+.setting-icon{
+
+    display:grid;
+
+    place-items:center;
+
+    width:60px;
+
+    height:60px;
+
+    margin-bottom:20px;
+
+    color:var(--primary);
+
+    background:
+
+        linear-gradient(
+
+            135deg,
+
+            #EEF2FF,
+
+            #F5F3FF
+
+        );
+
+    border-radius:18px;
+
+    font-size:24px;
+
+    box-shadow:
+
+        inset 0 1px 0 rgba(255,255,255,.90),
+
+        0 12px 24px rgba(91,79,247,.10);
+
+}
+
+.setting-card h3{
+
+    font-size:22px;
+
+    font-weight:800;
+
+    letter-spacing:-.04em;
+
+}
+
+.setting-card p{
+
+    margin-top:10px;
+
+    color:var(--text-light);
+
+    font-size:14px;
+
+    line-height:1.8;
+
+}
+
+/* ==========================================================
+   SETTING CONTROLS
+========================================================== */
+
+.setting-controls{
+
+    display:grid;
+
+    gap:18px;
+
+    margin-top:24px;
+
+}
+
+.setting-data-controls{
+
+    display:grid;
+
+    grid-template-columns:repeat(2,minmax(0,1fr));
+
+    gap:14px;
+
+}
+
+.setting-action-row{
+
+    display:flex;
+
+    flex-wrap:wrap;
+
+    gap:14px;
+
+    margin-top:22px;
+
+}
+
+
+
+/* ==========================================================
+   PREMIUM TOGGLE
+========================================================== */
+
+.toggle-switch{
+
+    display:flex;
+
+    align-items:center;
+
+    justify-content:space-between;
+
+    gap:18px;
+
+    padding:18px 20px;
+
+    background:
+
+        linear-gradient(
+
+            180deg,
+
+            rgba(255,255,255,.90),
+
+            rgba(255,255,255,.78)
+
+        );
+
+    border:1px solid rgba(148,163,184,.16);
+
+    border-radius:18px;
+
+    transition:
+
+        transform .30s ease,
+
+        border-color .30s ease,
+
+        box-shadow .30s ease,
+
+        background .30s ease;
+
+}
+
+.toggle-switch:hover{
+
+    transform:translateY(-3px);
+
+    border-color:rgba(99,102,241,.18);
+
+    box-shadow:
+
+        0 16px 34px rgba(15,23,42,.08);
+
+}
+
+.toggle-label{
+
+    flex:1;
+
+    color:var(--text-secondary);
+
+    font-size:13px;
+
+    font-weight:700;
+
+    line-height:1.6;
+
+}
+
+.toggle-switch input{
+
+    width:22px;
+
+    height:22px;
+
+    accent-color:var(--primary);
+
+    cursor:pointer;
+
+}
+
+.toggle-track{
+
+    display:inline-block;
+
+    width:48px;
+
+    height:24px;
+
+    border-radius:999px;
+
+    background:
+
+        linear-gradient(
+
+            135deg,
+
+            #E9E8FF,
+
+            #F5F3FF
+
+        );
+
+}
+
+
+
+/* ==========================================================
+   ACTION BUTTONS
+========================================================== */
+
+.setting-btn{
+
+    display:inline-flex;
+
+    align-items:center;
+
+    justify-content:center;
+
+    gap:10px;
+
+    min-height:48px;
+
+    padding:0 20px;
+
+    color:var(--primary);
+
+    background:
+
+        linear-gradient(
+
+            180deg,
+
+            #FFFFFF,
+
+            #F8FAFC
+
+        );
+
+    border:1px solid rgba(99,102,241,.14);
+
+    border-radius:16px;
+
+    font-size:13px;
+
+    font-weight:700;
+
+    transition:
+
+        transform .30s ease,
+
+        box-shadow .30s ease,
+
+        background .30s ease,
+
+        color .30s ease;
+
+}
+
+.setting-btn:hover{
+
+    color:#FFFFFF;
+
+    background:var(--gradient-primary);
+
+    transform:translateY(-3px);
+
+    box-shadow:
+
+        0 18px 34px rgba(91,79,247,.22);
+
+}
+
+
+
+/* ==========================================================
+   DANGER ACTION
+========================================================== */
+
+.setting-btn.danger{
+
+    color:#DC2626;
+
+    background:
+
+        linear-gradient(
+
+            180deg,
+
+            #FEF2F2,
+
+            #FFF5F5
+
+        );
+
+    border-color:rgba(239,68,68,.18);
+
+}
+
+.setting-btn.danger:hover{
+
+    color:#FFFFFF;
+
+    background:
+
+        linear-gradient(
+
+            135deg,
+
+            #EF4444,
+
+            #DC2626
+
+        );
+
+}
+
+
+
+/* ==========================================================
+   RESPONSIVE
+========================================================== */
+
+@media (max-width:900px){
+
+    .settings-grid{
+
+        grid-template-columns:1fr;
+
+    }
+
+    .settings-stats{
+
+        grid-template-columns:repeat(2,1fr);
+
+    }
+
+    .setting-data-controls{
+
+        grid-template-columns:1fr;
+
+    }
+
+}
+
+@media (max-width:600px){
+
+    .settings-hero{
+
+        padding:34px 24px;
+
+    }
+
+    .settings-avatar{
+
+        width:68px;
+
+        height:68px;
+
+        font-size:24px;
+
+    }
+
+    .settings-name{
+
+        font-size:28px;
+
+    }
+
+    .settings-stats{
+
+        grid-template-columns:1fr;
+
+    }
+
+    .setting-action-row{
+
+        flex-direction:column;
+
+    }
+
+    .setting-action-row>*{
+
+        width:100%;
+
+    }
+
+}
+
+
+/* ==========================================================
+   END OF SETTINGS
+========================================================== */

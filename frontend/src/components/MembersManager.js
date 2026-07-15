@@ -538,20 +538,10 @@ function initializeActions(){
 
 
 
-    if(addButton){
-
-
-        addButton.onclick = ()=>{
-
-
-            navigate(
-                "add"
-            );
-
-
-        };
-
-
+    if (addButton) {
+        addButton.addEventListener("click", () => {
+            navigate("add");
+        });
     }
 
 
@@ -576,93 +566,84 @@ function bindCardEvents(){
 
 
     document
-    .querySelectorAll(".view-btn")
-    .forEach(button=>{
+        .querySelectorAll(".view-btn")
+        .forEach((button) => {
+            button.addEventListener("click", () => {
+                sessionStorage.setItem(
+                    "profileId",
+                    button.dataset.id
+                );
+                localStorage.setItem(
+                    "lastProfileId",
+                    button.dataset.id
+                );
 
+                sessionStorage.removeItem(
+                    "profileEdit"
+                );
 
-        button.onclick = ()=>{
-
-
-            sessionStorage.setItem(
-                "profileId",
-                button.dataset.id
-            );
-
-
-            sessionStorage.removeItem(
-                "profileEdit"
-            );
-
-
-            navigate(
-                "profile"
-            );
-
-
-        };
-
-
-    });
+                navigate(
+                    "profile"
+                );
+            });
+        });
 
 
 
 
 
     document
-    .querySelectorAll(".edit-btn")
-    .forEach(button=>{
+        .querySelectorAll(".edit-btn")
+        .forEach((button) => {
+            button.addEventListener("click", () => {
+                sessionStorage.setItem(
+                    "profileId",
+                    button.dataset.id
+                );
+                localStorage.setItem(
+                    "lastProfileId",
+                    button.dataset.id
+                );
 
+                sessionStorage.setItem(
+                    "profileEdit",
+                    "true"
+                );
 
-        button.onclick = ()=>{
-
-
-            sessionStorage.setItem(
-                "profileId",
-                button.dataset.id
-            );
-
-
-            sessionStorage.setItem(
-                "profileEdit",
-                "true"
-            );
-
-
-            navigate(
-                "profile"
-            );
-
-
-        };
-
-
-    });
+                navigate(
+                    "profile"
+                );
+            });
+        });
 
 
 
 
 
     document
-    .querySelectorAll(".delete-btn")
-    .forEach(button=>{
+        .querySelectorAll(".delete-btn")
+        .forEach((button) => {
+            button.addEventListener("click", () => {
+                const id = button.dataset.id;
+                const name = button.dataset.name;
 
+                openDeleteModal(name, async () => {
+                    try {
+                        const response = await api.delete(`/delete/${id}`);
+                        if (response.data && response.data.success) {
+                            showToast("Member deleted successfully.", "success");
+                        } else {
+                            showToast(response.data?.message || "Unable to delete member.", "error");
+                        }
+                    } catch (err) {
+                        console.error("Delete failed:", err);
+                        showToast("Unable to delete member.", "error");
+                    }
 
-        button.onclick = ()=>{
-
-
-            openDeleteModal(
-
-                button.dataset.name,
-
-                ()=>loadMembers()
-
-            );
-
-
-        };
-
-
-    });
+                    await loadMembers();
+                });
+            });
+        });
 
 
 }

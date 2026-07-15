@@ -68,13 +68,9 @@ async function searchMember() {
 
     try {
 
-        const response = await api.get(
+        const response = await api.get("/search/" + encodeURIComponent(name));
 
-            "/search/" + encodeURIComponent(name)
-
-        );
-
-        if (!response.data || response.data.error) {
+        if (!response.data || !response.data.success) {
 
             currentMember = null;
 
@@ -148,6 +144,13 @@ function bindResultEvents() {
                 currentMember.id
 
             );
+            localStorage.setItem(
+
+                "lastProfileId",
+
+                currentMember.id
+
+            );
 
             sessionStorage.removeItem(
 
@@ -172,6 +175,13 @@ function bindResultEvents() {
             sessionStorage.setItem(
 
                 "profileId",
+
+                currentMember.id
+
+            );
+            localStorage.setItem(
+
+                "lastProfileId",
 
                 currentMember.id
 

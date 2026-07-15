@@ -1,20 +1,973 @@
-/* Shared authenticated workspace shell. */
-.app-shell { min-height: 100vh; display: grid; grid-template-columns: var(--sidebar-width) minmax(0, 1fr); background: var(--background); }
-.dashboard-sidebar { position: sticky; top: 0; height: 100vh; z-index: 10; display: flex; flex-direction: column; padding: 28px 16px 18px; background: rgba(255,255,255,.64); border-right: 1px solid rgba(91,79,247,.1); backdrop-filter: blur(22px); }
-.sidebar-brand { display: flex; align-items: center; gap: 11px; padding: 4px 12px 30px; color: var(--text); cursor: pointer; }
-.brand-mark { display: grid; place-items: center; width: 39px; height: 39px; border-radius: 14px; color: #fff; background: var(--gradient-primary); box-shadow: 0 10px 24px rgba(91,79,247,.32); font-size: 20px; }
-.sidebar-brand strong { display: block; font-size: 16px; line-height: 1.05; letter-spacing: -.04em; }
-.sidebar-brand small { display: block; margin-top: 3px; color: var(--secondary); font-size: 8px; font-weight: 800; letter-spacing: .22em; }
-.sidebar-nav { display: grid; gap: 5px; }
-.sidebar-link { display: flex; align-items: center; gap: 12px; min-height: 48px; padding: 8px 12px; border-radius: 14px; color: #74758b; font-size: 14px; font-weight: 650; cursor: pointer; transition: color var(--transition), background var(--transition), transform var(--transition); }
-.nav-icon { display: grid; place-items: center; width: 28px; height: 28px; color: currentColor; }
-.nav-icon svg, .sidebar-logout svg { width: 19px; height: 19px; fill: none; stroke: currentColor; stroke-width: 1.8; stroke-linecap: round; stroke-linejoin: round; }
-.sidebar-link:hover { color: var(--primary); background: rgba(91,79,247,.07); transform: translateX(3px); }
-.sidebar-link.active { color: #fff; background: var(--gradient-primary); box-shadow: 0 12px 24px rgba(91,79,247,.25); }
-.sidebar-profile { margin-top: auto; padding-top: 22px; border-top: 1px solid var(--border-light); }
-.profile-summary { width: 100%; display: flex; align-items: center; gap: 10px; padding: 10px 8px; color: var(--text); background: transparent; text-align: left; border-radius: 14px; }
-.profile-summary:hover { background: rgba(91,79,247,.06); }
-.user-avatar { display: grid; flex: 0 0 auto; place-items: center; width: 34px; height: 34px; color: var(--primary); background: #eae9ff; border: 1px solid rgba(91,79,247,.15); border-radius: 50%; font-size: 12px; font-weight: 800; }
-.profile-summary-copy { display: grid; min-width: 0; gap: 1px; }.profile-summary-copy strong { overflow: hidden; text-overflow: ellipsis; white-space: nowrap; font-size: 12px; }.profile-summary-copy small { color: var(--text-light); font-size: 10px; }.profile-chevron { margin-left: auto; color: var(--text-light); font-size: 21px; }
-.sidebar-logout { display: flex; align-items: center; gap: 9px; width: 100%; margin-top: 8px; padding: 10px 8px; color: #a14c5b; background: transparent; border-radius: 12px; font-size: 12px; font-weight: 700; }.sidebar-logout:hover { color: var(--danger); background: #fff1f2; }
-.dashboard-workspace { min-width: 0; }.top-navbar { display: flex; align-items: center; min-height: var(--header-height); padding: 0 48px; }.top-navbar-spacer { flex: 1; }.mobile-brand { display: none; align-items: center; gap: 8px; }.mobile-brand .brand-mark { width: 30px; height: 30px; border-radius: 10px; font-size: 15px; }.mobile-brand strong { font-size: 14px; letter-spacing: -.03em; }.notification-button { position: relative; display: grid; place-items: center; width: 38px; height: 38px; color: #686a82; background: rgba(255,255,255,.66); border: 1px solid var(--border-light); border-radius: 12px; }.notification-button:hover { color: var(--primary); background: #fff; box-shadow: var(--shadow-xs); }.notification-button svg { width: 18px; fill: none; stroke: currentColor; stroke-width: 1.8; stroke-linecap: round; }.notification-button span { position: absolute; top: 8px; right: 8px; width: 5px; height: 5px; background: #fb7185; border: 1px solid #fff; border-radius: 50%; }.top-profile { display: flex; align-items: center; gap: 9px; margin-left: 14px; padding: 4px 0 4px 11px; color: #4d4e65; background: transparent; font-size: 12px; font-weight: 700; }.top-profile:hover { color: var(--primary); }.page-container { width: min(100%, 1500px); margin: 0 auto; padding: 8px 48px 56px; }
+/* ==========================================================
+   APP SHELL
+========================================================== */
+
+.app-shell{
+
+    display:grid;
+
+    grid-template-columns:var(--sidebar-width) minmax(0,1fr);
+
+    min-height:100vh;
+
+    background:
+
+        radial-gradient(circle at top left,
+            rgba(91,79,247,.05),
+            transparent 35%),
+
+        radial-gradient(circle at bottom right,
+            rgba(139,92,246,.05),
+            transparent 30%),
+
+        linear-gradient(
+            180deg,
+            #FAFBFF 0%,
+            #F7F8FF 100%
+        );
+
+}
+
+
+/* ==========================================================
+   SIDEBAR
+========================================================== */
+
+.dashboard-sidebar{
+
+    position:sticky;
+
+    top:0;
+
+    height:100vh;
+
+    z-index:100;
+
+    display:flex;
+
+    flex-direction:column;
+
+    padding:26px 18px 20px;
+
+    background:
+
+        linear-gradient(
+
+            180deg,
+
+            rgba(255,255,255,.90),
+
+            rgba(250,250,255,.82)
+
+        );
+
+    backdrop-filter:blur(28px);
+
+    border-right:
+
+        1px solid rgba(91,79,247,.08);
+
+    box-shadow:
+
+        inset -1px 0 rgba(255,255,255,.75),
+
+        18px 0 45px rgba(91,79,247,.05);
+
+}
+
+
+/* Soft lighting */
+
+.dashboard-sidebar::before{
+
+    content:"";
+
+    position:absolute;
+
+    inset:0;
+
+    pointer-events:none;
+
+    background:
+
+        linear-gradient(
+
+            180deg,
+
+            rgba(255,255,255,.35),
+
+            transparent 30%
+
+        );
+
+}
+
+
+/* ==========================================================
+   BRAND
+========================================================== */
+
+.sidebar-brand{
+
+    display:flex;
+
+    align-items:center;
+
+    gap:14px;
+
+    padding:8px 14px 34px;
+
+    cursor:pointer;
+
+    transition:
+
+        transform .4s cubic-bezier(.22,1,.36,1);
+
+}
+
+.sidebar-brand:hover{
+
+    transform:translateY(-2px);
+
+}
+
+
+/* ==========================================================
+   LOGO
+========================================================== */
+
+.brand-mark{
+
+    position:relative;
+
+    display:grid;
+
+    place-items:center;
+
+    width:50px;
+
+    height:50px;
+
+    border-radius:18px;
+
+    color:#fff;
+
+    font-size:22px;
+
+    background:
+
+        linear-gradient(
+            135deg,
+            #4F46E5,
+            #6D4DFF,
+            #8B5CF6
+        );
+
+    box-shadow:
+
+        0 14px 32px rgba(91,79,247,.35),
+
+        inset 0 1px rgba(255,255,255,.30);
+
+    overflow:hidden;
+
+}
+
+.brand-mark::before{
+
+    content:"";
+
+    position:absolute;
+
+    inset:0;
+
+    background:
+
+        linear-gradient(
+
+            135deg,
+
+            rgba(255,255,255,.30),
+
+            transparent 45%
+
+        );
+
+}
+
+
+/* ==========================================================
+   BRAND TEXT
+========================================================== */
+
+.sidebar-brand strong{
+
+    display:block;
+
+    color:var(--text);
+
+    font-size:20px;
+
+    font-weight:800;
+
+    line-height:1;
+
+    letter-spacing:-.04em;
+
+}
+
+.sidebar-brand small{
+
+    display:block;
+
+    margin-top:6px;
+
+    color:var(--primary);
+
+    font-size:10px;
+
+    font-weight:800;
+
+    letter-spacing:.24em;
+
+    text-transform:uppercase;
+
+}
+
+
+/* ==========================================================
+   NAVIGATION
+========================================================== */
+
+.sidebar-nav{
+
+    display:grid;
+
+    gap:8px;
+
+}
+
+
+/* ==========================================================
+   NAVIGATION ITEM
+========================================================== */
+
+.sidebar-link{
+
+    position:relative;
+
+    display:flex;
+
+    align-items:center;
+
+    gap:14px;
+
+    min-height:56px;
+
+    padding:0 18px;
+
+    border-radius:18px;
+
+    color:#707389;
+
+    font-size:15px;
+
+    font-weight:700;
+
+    overflow:hidden;
+
+    cursor:pointer;
+
+    transition:
+
+        transform .35s cubic-bezier(.22,1,.36,1),
+
+        background .35s,
+
+        color .35s,
+
+        box-shadow .35s;
+
+}
+
+
+/* Left Accent */
+
+.sidebar-link::before{
+
+    content:"";
+
+    position:absolute;
+
+    left:0;
+
+    top:12px;
+
+    bottom:12px;
+
+    width:4px;
+
+    border-radius:0 20px 20px 0;
+
+    background:#5B4FF7;
+
+    transform:scaleY(0);
+
+    transition:.35s;
+
+}
+
+
+/* Glass Shine */
+
+.sidebar-link::after{
+
+    content:"";
+
+    position:absolute;
+
+    top:0;
+
+    left:-120%;
+
+    width:70%;
+
+    height:100%;
+
+    background:
+
+        linear-gradient(
+
+            transparent,
+
+            rgba(255,255,255,.35),
+
+            transparent
+
+        );
+
+    transform:skewX(-20deg);
+
+    transition:left .8s;
+
+}
+
+
+/* Hover */
+
+.sidebar-link:hover{
+
+    color:var(--primary);
+
+    transform:translateX(6px);
+
+    background:
+
+        linear-gradient(
+
+            135deg,
+
+            rgba(91,79,247,.08),
+
+            rgba(91,79,247,.03)
+
+        );
+
+    box-shadow:
+
+        0 10px 26px rgba(91,79,247,.08);
+
+}
+
+.sidebar-link:hover::before{
+
+    transform:scaleY(1);
+
+}
+
+.sidebar-link:hover::after{
+
+    left:150%;
+
+}
+
+
+/* ==========================================================
+   ACTIVE
+========================================================== */
+
+.sidebar-link.active{
+
+    color:#ffffff;
+
+    background:
+
+        linear-gradient(
+            135deg,
+            #4F46E5,
+            #5B4FF7,
+            #6D4DFF
+        );
+
+    box-shadow:
+
+        0 18px 36px rgba(91,79,247,.30);
+
+}
+
+.sidebar-link.active::before{
+
+    transform:scaleY(1);
+
+    background:#ffffff;
+
+}
+
+
+/* ==========================================================
+   ICON
+========================================================== */
+
+.nav-icon{
+
+    display:grid;
+
+    place-items:center;
+
+    flex:0 0 auto;
+
+    width:34px;
+
+    height:34px;
+
+    border-radius:12px;
+
+    transition:
+
+        transform .35s cubic-bezier(.22,1,.36,1);
+
+}
+
+.sidebar-link:hover .nav-icon{
+
+    transform:scale(1.10);
+
+}
+
+.sidebar-link.active .nav-icon{
+
+    background:rgba(255,255,255,.15);
+
+}
+
+.nav-icon svg,
+.sidebar-logout svg{
+
+    width:20px;
+
+    height:20px;
+
+    fill:none;
+
+    stroke:currentColor;
+
+    stroke-width:2;
+
+    stroke-linecap:round;
+
+    stroke-linejoin:round;
+
+}
+
+/* ==========================================================
+   SIDEBAR PROFILE
+========================================================== */
+
+.sidebar-profile{
+
+    margin-top:auto;
+
+    padding-top:28px;
+
+    border-top:1px solid rgba(91,79,247,.08);
+
+}
+
+
+/* ==========================================================
+   PROFILE SUMMARY
+========================================================== */
+
+.profile-summary{
+
+    display:flex;
+
+    align-items:center;
+
+    gap:14px;
+
+    width:100%;
+
+    padding:14px;
+
+    border-radius:20px;
+
+    background:
+
+        linear-gradient(
+            180deg,
+            rgba(255,255,255,.95),
+            rgba(248,249,255,.90)
+        );
+
+    border:1px solid rgba(91,79,247,.08);
+
+    cursor:pointer;
+
+    transition:
+        transform .35s cubic-bezier(.22,1,.36,1),
+        box-shadow .35s,
+        border-color .35s;
+
+}
+
+.profile-summary:hover{
+
+    transform:translateY(-4px);
+
+    border-color:rgba(91,79,247,.16);
+
+    box-shadow:
+
+        0 18px 40px rgba(91,79,247,.10);
+
+}
+
+
+/* ==========================================================
+   USER AVATAR
+========================================================== */
+
+.user-avatar{
+
+    display:grid;
+
+    place-items:center;
+
+    flex:0 0 auto;
+
+    width:46px;
+
+    height:46px;
+
+    border-radius:50%;
+
+    color:var(--primary);
+
+    font-size:15px;
+
+    font-weight:800;
+
+    background:
+
+        linear-gradient(
+            135deg,
+            #EEF2FF,
+            #E9E5FF
+        );
+
+    border:1px solid rgba(91,79,247,.14);
+
+    transition:.35s;
+
+}
+
+.profile-summary:hover .user-avatar{
+
+    transform:scale(1.08);
+
+}
+
+
+/* ==========================================================
+   PROFILE TEXT
+========================================================== */
+
+.profile-summary-copy{
+
+    display:flex;
+
+    flex-direction:column;
+
+    min-width:0;
+
+    gap:4px;
+
+}
+
+.profile-summary-copy strong{
+
+    overflow:hidden;
+
+    text-overflow:ellipsis;
+
+    white-space:nowrap;
+
+    color:var(--text);
+
+    font-size:14px;
+
+    font-weight:700;
+
+}
+
+.profile-summary-copy small{
+
+    color:var(--text-light);
+
+    font-size:11px;
+
+}
+
+.profile-chevron{
+
+    margin-left:auto;
+
+    font-size:20px;
+
+    color:#9A9DB2;
+
+    transition:.35s;
+
+}
+
+.profile-summary:hover .profile-chevron{
+
+    transform:translateX(4px);
+
+    color:var(--primary);
+
+}
+
+
+/* ==========================================================
+   LOGOUT
+========================================================== */
+
+.sidebar-logout{
+
+    display:flex;
+
+    align-items:center;
+
+    gap:12px;
+
+    width:100%;
+
+    margin-top:14px;
+
+    padding:14px;
+
+    border-radius:18px;
+
+    color:#B04C5C;
+
+    background:transparent;
+
+    font-size:14px;
+
+    font-weight:700;
+
+    transition:
+        transform .35s,
+        background .35s,
+        color .35s;
+
+}
+
+.sidebar-logout:hover{
+
+    transform:translateX(6px);
+
+    color:#DC2626;
+
+    background:#FFF1F2;
+
+}
+
+
+/* ==========================================================
+   WORKSPACE
+========================================================== */
+
+.dashboard-workspace{
+
+    min-width:0;
+
+    display:flex;
+
+    flex-direction:column;
+
+}
+
+
+/* ==========================================================
+   TOP NAVBAR
+========================================================== */
+
+.top-navbar{
+
+    display:flex;
+
+    align-items:center;
+
+    min-height:88px;
+
+    padding:0 48px;
+
+}
+
+.top-navbar-spacer{
+
+    flex:1;
+
+}
+
+
+/* ==========================================================
+   MOBILE BRAND
+========================================================== */
+
+.mobile-brand{
+
+    display:none;
+
+    align-items:center;
+
+    gap:12px;
+
+}
+
+.mobile-brand .brand-mark{
+
+    width:40px;
+
+    height:40px;
+
+    border-radius:14px;
+
+    font-size:18px;
+
+}
+
+.mobile-brand strong{
+
+    font-size:18px;
+
+    font-weight:800;
+
+}
+
+
+/* ==========================================================
+   NOTIFICATION
+========================================================== */
+
+.notification-button{
+
+    position:relative;
+
+    display:grid;
+
+    place-items:center;
+
+    width:48px;
+
+    height:48px;
+
+    border-radius:16px;
+
+    background:
+
+        linear-gradient(
+            180deg,
+            rgba(255,255,255,.95),
+            rgba(248,249,255,.90)
+        );
+
+    border:1px solid rgba(91,79,247,.08);
+
+    color:#6D7187;
+
+    transition:
+        transform .35s,
+        box-shadow .35s,
+        color .35s;
+
+}
+
+.notification-button:hover{
+
+    transform:translateY(-4px);
+
+    color:var(--primary);
+
+    box-shadow:
+
+        0 18px 36px rgba(91,79,247,.12);
+
+}
+
+.notification-button svg{
+
+    width:22px;
+
+    fill:none;
+
+    stroke:currentColor;
+
+    stroke-width:2;
+
+    stroke-linecap:round;
+
+}
+
+.notification-button span{
+
+    position:absolute;
+
+    top:10px;
+
+    right:10px;
+
+    width:8px;
+
+    height:8px;
+
+    border-radius:50%;
+
+    background:#FB7185;
+
+    border:2px solid white;
+
+}
+
+
+/* ==========================================================
+   TOP PROFILE
+========================================================== */
+
+.top-profile{
+
+    display:flex;
+
+    align-items:center;
+
+    gap:12px;
+
+    margin-left:18px;
+
+    padding:8px 14px;
+
+    border-radius:18px;
+
+    transition:
+        background .35s,
+        transform .35s;
+
+    cursor:pointer;
+
+}
+
+.top-profile:hover{
+
+    transform:translateY(-3px);
+
+    background:rgba(91,79,247,.05);
+
+}
+
+.top-profile .user-avatar{
+
+    width:40px;
+
+    height:40px;
+
+    font-size:13px;
+
+}
+
+.top-profile span{
+
+    color:var(--text);
+
+    font-size:14px;
+
+    font-weight:700;
+
+}
+
+
+/* ==========================================================
+   PAGE CONTAINER
+========================================================== */
+
+.page-container{
+
+    width:min(100%,1550px);
+
+    margin:0 auto;
+
+    padding:10px 52px 70px;
+
+}
+
+
+/* ==========================================================
+   SCROLLBAR
+========================================================== */
+
+.dashboard-sidebar::-webkit-scrollbar{
+
+    width:6px;
+
+}
+
+.dashboard-sidebar::-webkit-scrollbar-thumb{
+
+    background:rgba(91,79,247,.18);
+
+    border-radius:999px;
+
+}
+
+
+/* ==========================================================
+   FADE ANIMATION
+========================================================== */
+
+@keyframes fadeSlide{
+
+    from{
+
+        opacity:0;
+
+        transform:translateY(10px);
+
+    }
+
+    to{
+
+        opacity:1;
+
+        transform:translateY(0);
+
+    }
+
+}
+
+.page-container>*{
+
+    animation:fadeSlide .55s cubic-bezier(.22,1,.36,1);
+
+}

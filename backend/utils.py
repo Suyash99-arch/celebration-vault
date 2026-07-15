@@ -1,8 +1,13 @@
+import os
+import sys
 from datetime import datetime
+
+# Ensure backend package modules import correctly regardless of CWD
+BASE_DIR = os.path.dirname(os.path.abspath(__file__))
+if BASE_DIR not in sys.path:
+    sys.path.insert(0, BASE_DIR)
+
 from config import DATE_FORMAT
-
-
-from datetime import datetime
 
 
 def parse_date(date_value):

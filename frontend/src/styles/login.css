@@ -1,1 +1,453 @@
-.login-page { position: relative; display: grid; min-height: 100vh; place-items: center; padding: 28px; overflow: hidden; background: linear-gradient(135deg,#f8faff,#f5f1ff); }.login-page::before, .login-page::after { position: absolute; width: 380px; height: 380px; border-radius: 50%; content: ""; filter: blur(8px); }.login-page::before { top: -190px; left: -150px; background: rgba(91,79,247,.16); }.login-page::after { right: -180px; bottom: -180px; background: rgba(124,58,237,.13); }.login-card { position: relative; z-index: 1; width: min(100%, 440px); padding: 38px; background: rgba(255,255,255,.8); border: 1px solid rgba(255,255,255,.9); border-radius: 26px; box-shadow: var(--shadow-lg); backdrop-filter: blur(18px); animation: fadeUp .45s ease both; }.login-header { margin-bottom: 28px; text-align: center; }.login-logo { display: grid; width: 54px; height: 54px; margin: 0 auto 16px; place-items: center; color: #fff; background: var(--gradient-primary); border-radius: 18px; box-shadow: 0 12px 25px rgba(91,79,247,.28); font-size: 22px; }.login-header h1 { font-size: 24px; letter-spacing: -.05em; }.login-header p { margin-top: 5px; font-size: 12px; }.login-form { display: grid; gap: 16px; }.login-form .form-group { gap: 6px; }.login-form .btn { width: 100%; }.login-divider { display: flex; align-items: center; gap: 12px; color: var(--text-muted); font-size: 10px; font-weight: 700; }.login-divider::before, .login-divider::after { height: 1px; flex: 1; background: var(--border); content: ""; }.login-footer { margin-top: 4px; font-size: 12px; text-align: center; }.login-footer a { color: var(--primary); font-weight: 750; }.login-footer a:hover { text-decoration: underline; }
+/* ==========================================================
+   PREMIUM LOGIN PAGE
+========================================================== */
+
+.login-page{
+
+    position:relative;
+
+    display:grid;
+
+    place-items:center;
+
+    min-height:100vh;
+
+    padding:40px;
+
+    overflow:hidden;
+
+    background:
+        radial-gradient(circle at top left,#eef2ff 0%,transparent 40%),
+        radial-gradient(circle at bottom right,#ede9fe 0%,transparent 42%),
+        linear-gradient(
+            135deg,
+            #f8fbff 0%,
+            #f6f4ff 45%,
+            #eef5ff 100%
+        );
+
+}
+
+/* Floating background */
+
+.login-page::before,
+.login-page::after{
+
+    position:absolute;
+
+    content:"";
+
+    border-radius:50%;
+
+    filter:blur(10px);
+
+    animation:floatBlob 12s ease-in-out infinite;
+
+}
+
+.login-page::before{
+
+    width:520px;
+    height:520px;
+
+    top:-250px;
+    left:-180px;
+
+    background:rgba(91,79,247,.16);
+
+}
+
+.login-page::after{
+
+    width:420px;
+    height:420px;
+
+    right:-170px;
+    bottom:-170px;
+
+    background:rgba(124,58,237,.14);
+
+    animation-delay:3s;
+
+}
+
+/* ==========================================================
+   LOGIN CARD
+========================================================== */
+
+.login-card{
+
+    position:relative;
+
+    z-index:2;
+
+    width:min(100%,470px);
+
+    padding:48px;
+
+    background:
+        linear-gradient(
+            180deg,
+            rgba(255,255,255,.92),
+            rgba(255,255,255,.84)
+        );
+
+    border:1px solid rgba(255,255,255,.95);
+
+    border-radius:32px;
+
+    backdrop-filter:blur(30px);
+
+    box-shadow:
+        0 30px 70px rgba(15,23,42,.12),
+        0 10px 30px rgba(91,79,247,.12);
+
+    animation:loginAppear .7s cubic-bezier(.2,.8,.2,1);
+
+}
+
+.login-card:hover{
+
+    transform:translateY(-4px);
+
+    box-shadow:
+        0 40px 90px rgba(15,23,42,.16),
+        0 16px 40px rgba(91,79,247,.14);
+
+}
+
+/* ==========================================================
+   HEADER
+========================================================== */
+
+.login-header{
+
+    text-align:center;
+
+    margin-bottom:34px;
+
+}
+
+.login-logo{
+
+    display:grid;
+
+    place-items:center;
+
+    width:72px;
+
+    height:72px;
+
+    margin:0 auto 22px;
+
+    color:#fff;
+
+    background:var(--gradient-primary);
+
+    border-radius:24px;
+
+    font-size:30px;
+
+    box-shadow:
+        0 22px 42px rgba(91,79,247,.28);
+
+}
+
+.login-header h1{
+
+    font-size:34px;
+
+    letter-spacing:-.06em;
+
+    font-weight:800;
+
+    color:var(--text);
+
+}
+
+.login-header p{
+
+    margin-top:10px;
+
+    color:var(--text-light);
+
+    font-size:14px;
+
+    line-height:1.7;
+
+}
+
+/* ==========================================================
+   LOGIN FORM
+========================================================== */
+
+.login-form{
+
+    display:grid;
+
+    gap:20px;
+
+}
+
+.login-form .form-group{
+
+    display:grid;
+
+    gap:8px;
+
+}
+
+.login-form label{
+
+    color:var(--text-secondary);
+
+    font-size:12px;
+
+    font-weight:700;
+
+    letter-spacing:.02em;
+
+}
+
+.login-form input{
+
+    width:100%;
+
+    min-height:54px;
+
+    padding:0 18px;
+
+    color:var(--text);
+
+    background:rgba(255,255,255,.88);
+
+    border:1px solid rgba(91,79,247,.12);
+
+    border-radius:16px;
+
+    transition:
+        border-color .30s ease,
+        box-shadow .30s ease,
+        transform .30s ease,
+        background .30s ease;
+
+}
+
+.login-form input::placeholder{
+
+    color:#a1a1b8;
+
+}
+
+.login-form input:hover{
+
+    background:#fff;
+
+    border-color:rgba(91,79,247,.24);
+
+}
+
+.login-form input:focus{
+
+    outline:none;
+
+    background:#fff;
+
+    border-color:var(--primary);
+
+    box-shadow:
+        0 0 0 5px rgba(91,79,247,.10),
+        0 14px 30px rgba(91,79,247,.10);
+
+    transform:translateY(-2px);
+
+}
+
+.login-form .btn,
+.login-form .primary-btn{
+
+    width:100%;
+
+    min-height:56px;
+
+    margin-top:6px;
+
+    border-radius:18px;
+
+    font-size:15px;
+
+    font-weight:800;
+
+}
+
+/* ==========================================================
+   DIVIDER
+========================================================== */
+
+.login-divider{
+
+    display:flex;
+
+    align-items:center;
+
+    gap:14px;
+
+    margin:26px 0;
+
+    color:var(--text-muted);
+
+    font-size:11px;
+
+    font-weight:700;
+
+    text-transform:uppercase;
+
+    letter-spacing:.08em;
+
+}
+
+.login-divider::before,
+.login-divider::after{
+
+    content:"";
+
+    flex:1;
+
+    height:1px;
+
+    background:rgba(148,163,184,.24);
+
+}
+
+/* ==========================================================
+   GOOGLE BUTTON
+========================================================== */
+
+.btn-google{
+
+    width:100%;
+
+    min-height:54px;
+
+    border-radius:16px;
+
+    font-weight:700;
+
+}
+
+/* ==========================================================
+   FOOTER
+========================================================== */
+
+.login-footer{
+
+    margin-top:24px;
+
+    text-align:center;
+
+    color:var(--text-light);
+
+    font-size:13px;
+
+    line-height:1.7;
+
+}
+
+.login-footer a{
+
+    color:var(--primary);
+
+    font-weight:800;
+
+    transition:all .25s ease;
+
+}
+
+.login-footer a:hover{
+
+    color:var(--primary-dark);
+
+    text-decoration:none;
+
+}
+
+/* ==========================================================
+   RESPONSIVE
+========================================================== */
+
+@media (max-width:640px){
+
+    .login-page{
+
+        padding:20px;
+
+    }
+
+    .login-card{
+
+        padding:34px 24px;
+
+        border-radius:26px;
+
+    }
+
+    .login-logo{
+
+        width:60px;
+        height:60px;
+
+        font-size:24px;
+
+    }
+
+    .login-header h1{
+
+        font-size:28px;
+
+    }
+
+}
+
+/* ==========================================================
+   ANIMATIONS
+========================================================== */
+
+@keyframes loginAppear{
+
+    from{
+
+        opacity:0;
+
+        transform:
+            translateY(28px)
+            scale(.97);
+
+    }
+
+    to{
+
+        opacity:1;
+
+        transform:
+            translateY(0)
+            scale(1);
+
+    }
+
+}
+
+@keyframes floatBlob{
+
+    0%,100%{
+
+        transform:translateY(0) translateX(0);
+
+    }
+
+    50%{
+
+        transform:translateY(30px) translateX(18px);
+
+    }
+
+}

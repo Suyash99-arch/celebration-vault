@@ -10,6 +10,9 @@
 
 import api from "../api/api.js";
 import { renderProfileView } from "./ProfileView.js";
+import { openDeleteModal } from "./DeleteModal.js";
+import { showToast } from "./Toast.js";
+import { navigate } from "../router/router.js";
 
 
 
@@ -137,28 +140,35 @@ function initializeActions(
 
 
 
+    const deleteButton =
+        document.getElementById(
+            "deleteProfile"
+        );
+
     if(editButton){
+        editButton.addEventListener("click", async () => {
+            const module = await import("./EditProfile.js");
+            module.openEditProfile(person);
+        });
+    }
 
-
-        editButton.onclick = ()=>{
-
-
-            import("./EditProfile.js")
-
-            .then(module=>{
-
-
-                module.openEditProfile(
-                    person
-                );
-
-
+    if(deleteButton){
+        deleteButton.addEventListener("click", () => {
+            openDeleteModal(person.name, async () => {
+                try {
+                    const response = await api.delete(`/delete/${person.id}`);
+                    if (response.data.success) {
+                        showToast("Member deleted successfully.", "success");
+                        navigate("members");
+                    } else {
+                        showToast(response.data.message || "Could not delete member.", "error");
+                    }
+                } catch (error) {
+                    console.error(error);
+                    showToast("Unable to delete member.", "error");
+                }
             });
-
-
-        };
-
-
+        });
     }
 
 

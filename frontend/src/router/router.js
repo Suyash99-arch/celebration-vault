@@ -4,6 +4,7 @@
 
 import { LandingPage } from "../pages/LandingPage.js";
 import { loadDashboard } from "../components/DashboardManager.js";
+import { DashboardLayout } from "../layouts/DashboardLayout.js";
 
 import { LoginPage } from "../pages/LoginPage.js";
 import { RegisterPage } from "../pages/RegisterPage.js";
@@ -21,6 +22,10 @@ import { loadMembers } from "../components/MembersManager.js";
 import { initializeAddMember } from "../components/AddMemberManager.js";
 import { initializeSearch } from "../components/SearchManager.js";
 import { loadProfile } from "../components/ProfileManager.js";
+import { loadSettings } from "../components/SettingsManager.js";
+import { initializeLogin } from "../components/LoginForm.js";
+import { initializeRegister } from "../components/RegisterForm.js";
+import { initAuthNavigation } from "../components/Auth.js";
 
 import {
     initializeAnniversary
@@ -96,7 +101,21 @@ function render(page) {
 
     }
 
-    app.innerHTML = Page();
+    const authenticatedPages = [
+        "dashboard",
+        "members",
+        "add",
+        "profile",
+        "search",
+        "anniversary",
+        "settings"
+    ];
+
+    if (authenticatedPages.includes(page) && page !== "dashboard") {
+        app.innerHTML = DashboardLayout(Page(), page);
+    } else {
+        app.innerHTML = Page();
+    }
 
 /* ==========================================
    PAGE INITIALIZERS
@@ -104,16 +123,26 @@ function render(page) {
 
 switch (page) {
 
-    case "dashboard":
+    case "login":
 
-        loadDashboard();
+        initializeLogin();
+        initAuthNavigation();
 
         break;
 
+    case "register":
+
+        initializeRegister();
+        initAuthNavigation();
+
+        break;
+
+    case "dashboard":
+        loadDashboard();
+        break;
+
     case "members":
-
         loadMembers();
-
         break;
 
     case "add":
@@ -138,7 +167,7 @@ switch (page) {
 
         const id = Number(
 
-            sessionStorage.getItem("profileId")
+            sessionStorage.getItem("profileId") || localStorage.getItem("lastProfileId")
 
         );
 
@@ -150,11 +179,27 @@ switch (page) {
 
             loadProfile(id, editMode);
 
+        } else {
+
+            const content = document.getElementById("profileContent");
+            if (content) {
+                content.innerHTML = `
+                    <div class="empty-card">
+                        ❌ No profile selected.
+                    </div>
+                `;
+            }
         }
 
         break;
 
     }
+
+    case "settings":
+
+        loadSettings();
+
+        break;
 
 }
 

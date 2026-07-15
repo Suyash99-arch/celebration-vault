@@ -4,270 +4,96 @@ return `
 
 <div class="settings-page">
 
-    <!-- ==========================================
-            HERO
-    =========================================== -->
-
     <section class="settings-hero">
 
-        <div class="settings-avatar">
-
-            KS
-
+        <div class="settings-hero-copy">
+            <span class="page-badge">Settings</span>
+            <h1>Workspace Preferences</h1>
+            <p>Fine-tune your celebration vault with elegant controls, secure data tools, and smart account actions.</p>
         </div>
 
-        <h1 class="settings-name">
-
-            Kumar Shreyash
-
-        </h1>
-
-        <p class="settings-role">
-
-            Family Vault Owner
-
-        </p>
-
-        <div class="settings-version">
-
-            ✨ Version 2.0 Premium
-
+        <div class="settings-hero-panel">
+            <div class="settings-hero-card">
+                <span class="hero-label">Premium Plan</span>
+                <strong>Family Vault Pro</strong>
+                <p>Unlimited birthdays, anniversaries, and secure backup utilities.</p>
+            </div>
         </div>
 
     </section>
-
-
-
-
-
-    <!-- ==========================================
-            STATS
-    =========================================== -->
 
     <section class="settings-stats">
 
         <div class="setting-stat">
-
             <div class="icon">👨‍👩‍👧</div>
-
-            <h2 id="settingMembers">
-
-                0
-
-            </h2>
-
-            <p>
-
-                Members
-
-            </p>
-
+            <h2 id="settingMembers">0</h2>
+            <p>Members</p>
         </div>
 
-
-
         <div class="setting-stat">
-
             <div class="icon">🎂</div>
-
-            <h2 id="settingBirthdays">
-
-                0
-
-            </h2>
-
-            <p>
-
-                Birthdays
-
-            </p>
-
+            <h2 id="settingBirthdays">0</h2>
+            <p>Birthdays</p>
         </div>
 
-
-
         <div class="setting-stat">
-
             <div class="icon">💍</div>
-
-            <h2 id="settingAnniversaries">
-
-                0
-
-            </h2>
-
-            <p>
-
-                Anniversaries
-
-            </p>
-
+            <h2 id="settingAnniversaries">0</h2>
+            <p>Anniversaries</p>
         </div>
 
-
-
         <div class="setting-stat">
-
             <div class="icon">💾</div>
-
-            <h2>
-
-                Secure
-
-            </h2>
-
-            <p>
-
-                SQLite Storage
-
-            </p>
-
+            <h2>Secure</h2>
+            <p>SQLite storage</p>
         </div>
 
     </section>
 
-
-
-
-
-    <!-- ==========================================
-            SETTINGS
-    =========================================== -->
-
     <section class="settings-grid">
 
-
-
         <div class="setting-card">
-
-            <div class="setting-icon">
-
-                🎨
-
+            <div class="setting-icon">🎨</div>
+            <h3>Appearance</h3>
+            <p>Choose the theme that suits your workspace best.</p>
+            <div class="setting-controls">
+                <button id="themeToggle" class="secondary-btn" type="button">🌙 Toggle Theme</button>
             </div>
-
-            <h3>
-
-                Appearance
-
-            </h3>
-
-            <p>
-
-                Personalize the look and feel of your Family Vault.
-
-                Choose between Light and Dark themes for the best experience.
-
-            </p>
-
-            <button
-                id="themeToggle"
-                class="setting-btn">
-
-                🌙 Toggle Theme
-
-            </button>
-
         </div>
 
-
-
-
-
         <div class="setting-card">
-
-            <div class="setting-icon">
-
-                🔔
-
+            <div class="setting-icon">🔔</div>
+            <h3>Notifications</h3>
+            <p>Turn birthday and anniversary alerts on or off.</p>
+            <div class="setting-controls">
+                <label class="toggle-switch">
+                    <input type="checkbox" id="notificationsToggle">
+                    <span class="toggle-track"></span>
+                    <span class="toggle-label">Enable notifications</span>
+                </label>
             </div>
-
-            <h3>
-
-                Notifications
-
-            </h3>
-
-            <p>
-
-                Birthday reminders, anniversary alerts and upcoming celebrations.
-
-            </p>
-
-            <button class="setting-btn">
-
-                Configure
-
-            </button>
-
         </div>
 
-
-
-
-
         <div class="setting-card">
-
-            <div class="setting-icon">
-
-                💍
-
+            <div class="setting-icon">🛠️</div>
+            <h3>Data Management</h3>
+            <p>Export, import, or clear your vault data with confidence.</p>
+            <div class="setting-controls setting-data-controls">
+                <input type="file" id="importFile" accept=".db" hidden>
+                <button id="exportData" class="secondary-btn" type="button">Export Backup</button>
+                <button id="importData" class="secondary-btn" type="button">Import Backup</button>
+                <button id="clearData" class="danger-btn" type="button">Clear Data</button>
             </div>
-
-            <h3>
-
-                Anniversary Settings
-
-            </h3>
-
-            <p>
-
-                Manage anniversary reminders and celebration records.
-
-            </p>
-
-            <button
-                class="setting-btn"
-                data-page="anniversary">
-
-                Open Anniversary
-
-            </button>
-
         </div>
 
-
-
-
-
-                <div class="setting-card">
-
-            <div class="setting-icon">
-
-                🚪
-
+        <div class="setting-card setting-summary-card">
+            <div class="setting-icon">🔒</div>
+            <h3>Account</h3>
+            <p>Save your current settings or cancel unsaved changes.</p>
+            <div class="setting-controls setting-action-row">
+                <button id="cancelSettings" class="secondary-btn" type="button">Cancel</button>
+                <button id="saveSettings" class="hero-btn" type="button">Save Settings</button>
             </div>
-
-            <h3>
-
-                Account
-
-            </h3>
-
-            <p>
-
-                Sign out of your Birthday Vault account.
-
-            </p>
-
-            <button
-                id="logoutBtn"
-                class="setting-btn">
-
-                Logout
-
-            </button>
-
         </div>
 
     </section>

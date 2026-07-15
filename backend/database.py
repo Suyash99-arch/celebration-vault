@@ -1,7 +1,12 @@
-from multiprocessing.reduction import duplicate
+import os
+import sys
 import sqlite3
 from datetime import datetime
-from unicodedata import name
+
+# Ensure backend package modules import correctly regardless of CWD
+BASE_DIR = os.path.dirname(os.path.abspath(__file__))
+if BASE_DIR not in sys.path:
+    sys.path.insert(0, BASE_DIR)
 
 from config import DATABASE_FILE
 
@@ -150,23 +155,7 @@ def create_database():
     conn.close()
 
     print("Database Ready")
-    # ==========================================
-# ROW TO DICT
-# ==========================================
-
-def row_to_dict(row):
-
-    if row is None:
-
-        return None
-
-    return dict(row)
-
-
-# ==========================================
-# DATABASE HEALTH
-# ==========================================
-
+    
 def database_health():
 
     conn = get_connection()
@@ -360,14 +349,7 @@ def save_birthday(data):
 
         ))
 
-        show_all_rows()
-
-        print("Checking Name :", name)
-        print("Checking User :", user_id)
-
         duplicate = cursor.fetchone()
-
-        print("Duplicate Row :", duplicate)
 
         if duplicate:
 
@@ -1102,30 +1084,3 @@ def clear_database(user_id):
     finally:
 
         conn.close()
-        # ==========================================
-# DEBUG DATABASE
-# ==========================================
-
-def show_all_rows():
-
-    conn = get_connection()
-    cursor = conn.cursor()
-
-    cursor.execute("""
-        SELECT
-            id,
-            user_id,
-            name
-        FROM birthdays
-    """)
-
-    rows = cursor.fetchall()
-
-    print("\n=========== DATABASE ===========")
-
-    for row in rows:
-        print(dict(row))
-
-    print("================================\n")
-
-    conn.close()

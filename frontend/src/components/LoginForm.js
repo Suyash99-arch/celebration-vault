@@ -2,71 +2,56 @@ import api from "../api/api.js";
 import { showToast } from "./Toast.js";
 import { navigate } from "../router/router.js";
 
+const getValue = (id) => document.getElementById(id)?.value.trim() || "";
+
 export async function loginUser() {
-
-    const email = document.getElementById("loginEmail").value.trim();
-
-    const password = document.getElementById("loginPassword").value;
+    const email = getValue("loginEmail");
+    const password = document.getElementById("loginPassword")?.value || "";
 
     if (!email || !password) {
-
         showToast("Please enter email and password", "error");
-
         return;
-
     }
 
     try {
-
         const response = await api.post("/login", {
-
             email,
-
             password
-
         });
 
-        const data = response.data;
+        const { token, user } = response.data;
 
-        // Save login information
-        localStorage.setItem("token", data.token);
+        localStorage.setItem("token", token);
+        localStorage.setItem("user", JSON.stringify(user));
 
-        localStorage.setItem(
+        showToast(`Welcome ${user.name}!`, "success");
 
-            "user",
-
-            JSON.stringify(data.user)
-
-        );
-
+        setTimeout(() => navigate("dashboard"), 800);
+    } catch (error) {
         showToast(
-
-            "Welcome " + data.user.name + "!",
-
-            "success"
-
+            error.response?.data?.message ||
+            "Login failed",
+            "error"
         );
+    }
+}
 
-        setTimeout(() => {
+export function initializeLogin() {
 
-            navigate("dashboard");
+    const loginButton = document.getElementById("loginBtn");
+    const passwordInput = document.getElementById("loginPassword");
 
-        }, 800);
-
+    if (loginButton) {
+        loginButton.addEventListener("click", loginUser);
     }
 
-    catch (error) {
-
-        showToast(
-
-            error.response?.data?.message ||
-
-            "Login failed",
-
-            "error"
-
-        );
-
+    if (passwordInput) {
+        passwordInput.addEventListener("keydown", (event) => {
+            if (event.key === "Enter") {
+                event.preventDefault();
+                loginUser();
+            }
+        });
     }
 
 }

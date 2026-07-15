@@ -1,1 +1,627 @@
-.search-container { display: grid; gap: 22px; }.search-card, .dashboard-section { padding: 30px; background: var(--card); border: 1px solid rgba(255,255,255,.75); border-radius: 24px; box-shadow: var(--shadow-xs); backdrop-filter: blur(15px); }.search-card { text-align: center; }.search-icon { display: grid; width: 46px; height: 46px; margin: 0 auto 13px; place-items: center; background: #ecebff; border-radius: 15px; font-size: 20px; }.search-card h2 { font-size: 20px; letter-spacing: -.04em; }.search-card p { margin: 5px 0 19px; font-size: 12px; }.search-box { display: flex; gap: 9px; width: min(100%, 640px); margin: 0 auto; padding: 6px; background: rgba(255,255,255,.78); border: 1px solid var(--border); border-radius: 15px; }.search-box input { min-width: 0; padding: 0 9px; background: transparent; border: 0; }.search-box input:focus { box-shadow: none; }.section-header { display: flex; align-items: flex-start; justify-content: space-between; gap: 16px; margin-bottom: 17px; }.section-header h2 { font-size: 18px; letter-spacing: -.04em; }.section-header p { margin-top: 4px; font-size: 12px; }.search-result { display: grid; gap: 13px; }.birthday-card { padding: 21px; background: rgba(255,255,255,.7); border: 1px solid var(--border-light); border-radius: 18px; }.birthday-left, .birthday-top { display: flex; align-items: center; gap: 14px; }.avatar-circle { display: grid; flex: 0 0 auto; width: 45px; height: 45px; place-items: center; color: var(--primary); background: #ecebff; border-radius: 15px; font-size: 17px; font-weight: 800; }.card-info h3, .birthday-info h3 { font-size: 16px; }.birth-date, .birthday-info p { margin-top: 3px; font-size: 12px; }.card-badges { display: flex; flex-wrap: wrap; gap: 7px; margin-top: 12px; }.badge { display: inline-flex; padding: 5px 8px; color: var(--text-secondary); background: #f2f3f7; border-radius: 7px; font-size: 10px; font-weight: 700; }.countdown { color: #b65d00; background: #fff2dc; }
+/* ==========================================================
+   SEARCH PAGE
+========================================================== */
+
+.search-container{
+
+    display:grid;
+
+    gap:34px;
+
+    animation:fadeUp .6s ease;
+
+}
+
+
+/* ==========================================================
+   SEARCH CARD
+========================================================== */
+
+.search-card,
+.dashboard-section{
+
+    position:relative;
+
+    overflow:hidden;
+
+    padding:44px;
+
+    background:
+
+        linear-gradient(
+            180deg,
+            rgba(255,255,255,.98),
+            rgba(248,249,255,.94)
+        );
+
+    border:1px solid rgba(91,79,247,.08);
+
+    border-radius:32px;
+
+    box-shadow:
+
+        0 24px 60px rgba(91,79,247,.08);
+
+    backdrop-filter:blur(20px);
+
+}
+
+.search-card::before{
+
+    content:"";
+
+    position:absolute;
+
+    top:-140px;
+
+    right:-120px;
+
+    width:320px;
+
+    height:320px;
+
+    border-radius:50%;
+
+    background:
+
+        rgba(91,79,247,.05);
+
+}
+
+
+/* ==========================================================
+   SEARCH ICON
+========================================================== */
+
+.search-icon{
+
+    display:grid;
+
+    place-items:center;
+
+    width:72px;
+
+    height:72px;
+
+    margin:0 auto 24px;
+
+    border-radius:22px;
+
+    background:
+
+        linear-gradient(
+            135deg,
+            #EEF2FF,
+            #E7E5FF
+        );
+
+    color:var(--primary);
+
+    font-size:30px;
+
+    box-shadow:
+
+        0 15px 35px rgba(91,79,247,.10);
+
+}
+
+
+/* ==========================================================
+   HEADING
+========================================================== */
+
+.search-card h2{
+
+    font-size:36px;
+
+    font-weight:900;
+
+    letter-spacing:-.05em;
+
+    color:var(--text);
+
+}
+
+.search-card p{
+
+    max-width:620px;
+
+    margin:14px auto 34px;
+
+    color:var(--text-light);
+
+    font-size:16px;
+
+    line-height:1.8;
+
+}
+
+
+/* ==========================================================
+   SEARCH BOX
+========================================================== */
+
+.search-box{
+
+    display:flex;
+
+    align-items:center;
+
+    gap:14px;
+
+    width:min(100%,760px);
+
+    margin:auto;
+
+    padding:10px;
+
+    border-radius:22px;
+
+    background:
+
+        rgba(255,255,255,.95);
+
+    border:1px solid rgba(91,79,247,.10);
+
+    box-shadow:
+
+        0 15px 35px rgba(91,79,247,.06);
+
+    transition:
+
+        box-shadow .35s,
+
+        transform .35s,
+
+        border-color .35s;
+
+}
+
+.search-box:focus-within{
+
+    transform:translateY(-2px);
+
+    border-color:rgba(91,79,247,.25);
+
+    box-shadow:
+
+        0 25px 50px rgba(91,79,247,.12);
+
+}
+
+.search-box input{
+
+    flex:1;
+
+    min-width:0;
+
+    height:58px;
+
+    padding:0 18px;
+
+    background:transparent;
+
+    border:0;
+
+    color:var(--text);
+
+    font-size:16px;
+
+}
+
+.search-box input::placeholder{
+
+    color:#9CA3AF;
+
+}
+
+.search-box input:focus{
+
+    box-shadow:none;
+
+}
+/* ==========================================================
+   SECTION HEADER
+========================================================== */
+
+.section-header{
+
+    display:flex;
+
+    justify-content:space-between;
+
+    align-items:flex-end;
+
+    gap:24px;
+
+    margin-bottom:28px;
+
+}
+
+.section-header h2{
+
+    font-size:28px;
+
+    font-weight:900;
+
+    letter-spacing:-.05em;
+
+    color:var(--text);
+
+}
+
+.section-header p{
+
+    margin-top:8px;
+
+    color:var(--text-light);
+
+    font-size:15px;
+
+    line-height:1.7;
+
+}
+
+
+/* ==========================================================
+   SEARCH RESULTS
+========================================================== */
+
+.search-result{
+
+    display:grid;
+
+    gap:22px;
+
+}
+
+
+/* ==========================================================
+   RESULT CARD
+========================================================== */
+
+.birthday-card{
+
+    position:relative;
+
+    overflow:hidden;
+
+    padding:28px;
+
+    border-radius:24px;
+
+    background:
+
+        linear-gradient(
+
+            180deg,
+
+            rgba(255,255,255,.98),
+
+            rgba(248,249,255,.95)
+
+        );
+
+    border:1px solid rgba(91,79,247,.08);
+
+    box-shadow:
+
+        0 15px 35px rgba(91,79,247,.06);
+
+    transition:
+
+        transform .35s cubic-bezier(.22,1,.36,1),
+
+        box-shadow .35s,
+
+        border-color .35s;
+
+}
+
+.birthday-card::before{
+
+    content:"";
+
+    position:absolute;
+
+    left:0;
+
+    top:0;
+
+    width:100%;
+
+    height:4px;
+
+    background:
+
+        linear-gradient(
+
+            90deg,
+
+            #4F46E5,
+
+            #5B4FF7,
+
+            #7C3AED
+
+        );
+
+    transform:scaleX(0);
+
+    transform-origin:left;
+
+    transition:transform .35s;
+
+}
+
+.birthday-card:hover{
+
+    transform:
+
+        translateY(-8px);
+
+    border-color:rgba(91,79,247,.16);
+
+    box-shadow:
+
+        0 28px 60px rgba(91,79,247,.12);
+
+}
+
+.birthday-card:hover::before{
+
+    transform:scaleX(1);
+
+}
+
+
+/* ==========================================================
+   HEADER
+========================================================== */
+
+.birthday-left,
+.birthday-top{
+
+    display:flex;
+
+    align-items:center;
+
+    gap:18px;
+
+}
+
+
+/* ==========================================================
+   AVATAR
+========================================================== */
+
+.avatar-circle{
+
+    display:grid;
+
+    place-items:center;
+
+    flex:0 0 auto;
+
+    width:64px;
+
+    height:64px;
+
+    border-radius:20px;
+
+    background:
+
+        linear-gradient(
+
+            135deg,
+
+            #EEF2FF,
+
+            #E7E5FF
+
+        );
+
+    color:var(--primary);
+
+    font-size:24px;
+
+    font-weight:900;
+
+    box-shadow:
+
+        0 15px 35px rgba(91,79,247,.10);
+
+    transition:
+
+        transform .35s ease;
+
+}
+
+.birthday-card:hover .avatar-circle{
+
+    transform:
+
+        rotate(-8deg)
+
+        scale(1.08);
+
+}
+
+
+/* ==========================================================
+   TEXT
+========================================================== */
+
+.card-info h3,
+.birthday-info h3{
+
+    font-size:22px;
+
+    font-weight:900;
+
+    letter-spacing:-.03em;
+
+    color:var(--text);
+
+}
+
+.birth-date,
+.birthday-info p{
+
+    margin-top:6px;
+
+    color:var(--text-light);
+
+    font-size:15px;
+
+    line-height:1.7;
+
+}
+
+
+/* ==========================================================
+   BADGES
+========================================================== */
+
+.card-badges{
+
+    display:flex;
+
+    flex-wrap:wrap;
+
+    gap:10px;
+
+    margin-top:18px;
+
+}
+
+.badge{
+
+    display:inline-flex;
+
+    align-items:center;
+
+    justify-content:center;
+
+    padding:8px 14px;
+
+    border-radius:999px;
+
+    background:#F3F4F6;
+
+    color:var(--text);
+
+    font-size:12px;
+
+    font-weight:700;
+
+}
+
+.countdown{
+
+    background:
+
+        linear-gradient(
+
+            135deg,
+
+            #FEF3C7,
+
+            #FDE68A
+
+        );
+
+    color:#B45309;
+
+}
+
+
+/* ==========================================================
+   RESPONSIVE
+========================================================== */
+
+@media (max-width:768px){
+
+    .search-card{
+
+        padding:30px;
+
+    }
+
+    .search-card h2{
+
+        font-size:30px;
+
+    }
+
+    .search-box{
+
+        flex-direction:column;
+
+        padding:14px;
+
+    }
+
+    .search-box input{
+
+        width:100%;
+
+        height:52px;
+
+    }
+
+    .section-header{
+
+        flex-direction:column;
+
+        align-items:flex-start;
+
+    }
+
+    .birthday-left,
+
+    .birthday-top{
+
+        align-items:flex-start;
+
+    }
+
+}
+
+@media (max-width:480px){
+
+    .search-card{
+
+        padding:24px;
+
+        border-radius:24px;
+
+    }
+
+    .birthday-card{
+
+        padding:22px;
+
+        border-radius:20px;
+
+    }
+
+    .avatar-circle{
+
+        width:54px;
+
+        height:54px;
+
+        font-size:20px;
+
+    }
+
+    .card-info h3,
+
+    .birthday-info h3{
+
+        font-size:18px;
+
+    }
+
+}

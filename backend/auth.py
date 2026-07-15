@@ -1,4 +1,11 @@
+import os
+import sys
 import bcrypt
+
+# Ensure backend package modules import correctly regardless of CWD
+BASE_DIR = os.path.dirname(os.path.abspath(__file__))
+if BASE_DIR not in sys.path:
+    sys.path.insert(0, BASE_DIR)
 
 from datetime import datetime
 
@@ -36,73 +43,53 @@ def register_user(data):
             }
 
         cursor.execute(
-
             "SELECT id FROM users WHERE email=?",
-
             (email,)
-
         )
 
         if cursor.fetchone():
-
             return {
-
                 "success": False,
-
                 "message": "Email already registered."
-
             }
 
         password_hash = bcrypt.hashpw(
-
             password.encode(),
-
             bcrypt.gensalt()
-
         ).decode()
 
         cursor.execute(
-
             """
-
             INSERT INTO users(
-
                 name,
-
                 email,
-
                 password,
-
                 created_at
-
             )
-
             VALUES(?,?,?,?)
-
             """,
-
             (
-
                 name,
-
                 email,
-
                 password_hash,
-
                 datetime.now().strftime("%Y-%m-%d %H:%M:%S")
-
             )
-
         )
 
         conn.commit()
+        user_id = cursor.lastrowid
+        token = create_access_token(identity=str(user_id))
 
         return {
-
             "success": True,
-
-            "message": "Account created successfully."
-
+            "message": "Account created successfully.",
+            "token": token,
+            "user": {
+                "id": user_id,
+                "name": name,
+                "email": email,
+                "photo": ""
+            }
         }
 
     finally:

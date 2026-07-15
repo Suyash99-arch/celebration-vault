@@ -98,7 +98,7 @@ export function LandingPage() {
 
                 <strong>
 
-                    Kumar Shreyash
+                    Kumar Suyash
 
                 </strong>
 
@@ -868,7 +868,7 @@ export function LandingPage() {
 
             <h3>
 
-                Kumar Shreyash
+                Kumar Suyash
 
             </h3>
 

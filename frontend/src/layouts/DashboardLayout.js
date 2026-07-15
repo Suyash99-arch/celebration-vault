@@ -48,6 +48,18 @@ export function DashboardLayout(content, active = "") {
             localStorage.removeItem("user");
             navigate("landing");
         });
+        document.querySelectorAll("[data-page='profile']").forEach((button) => {
+            button.addEventListener("click", () => {
+                const profileId = sessionStorage.getItem("profileId") || localStorage.getItem("lastProfileId");
+                if (profileId) {
+                    sessionStorage.setItem("profileId", profileId);
+                    sessionStorage.removeItem("profileEdit");
+                    navigate("profile");
+                } else {
+                    navigate("members");
+                }
+            });
+        });
     }, 0);
 
     return `
