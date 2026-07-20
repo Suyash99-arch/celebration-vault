@@ -14,6 +14,19 @@ A modern full-stack MERN application to securely manage birthdays, anniversaries
 
 # 🎉 Celebration Vault
 
+<p align="center">
+
+![React](https://img.shields.io/badge/React-19-blue?logo=react)
+
+![Node.js](https://img.shields.io/badge/Node.js-Express-green?logo=node.js)
+
+![MongoDB](https://img.shields.io/badge/MongoDB-Database-green?logo=mongodb)
+
+![License](https://img.shields.io/badge/License-MIT-yellow)
+
+![Status](https://img.shields.io/badge/Version-v1.0.0-purple)
+
+</p>
 > Preserve memories. Celebrate moments. Share happiness.
 
 Celebration Vault is a modern full-stack web application built using the MERN stack that allows users to securely store, organize, and revisit their special celebrations and memorable moments through a clean, responsive, and user-friendly interface.
