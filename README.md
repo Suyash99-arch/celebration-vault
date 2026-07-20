@@ -112,7 +112,39 @@ npm run dev
 
 ## 📸 Screenshots
 
-> Screenshots will be added soon.
+### Landing Page
+
+![Landing]
+(screenshots/landing-page_part1.png)
+(screenshots/landing-page_part2.png)
+(screenshots/landing-page_part3.png)
+(screenshots/landing-page_part4.png)
+(screenshots/landing-page_part5.png)
+(screenshots/landing-page_part6.png)
+
+### Dashboard
+
+![Dashboard]
+(screenshots/dashboard_part1.png)
+(screenshots/dashboard_part2.png)
+
+### Family Directory
+
+![People](screenshots/people.png)
+
+### Birthday Manager
+
+![Birthday](screenshots/birthday.png)
+
+### Anniversary Manager
+
+![Anniversary]
+(screenshots/anniversary_part1.png)
+(screenshots/anniversary_part2.png)
+
+### Search
+
+![Search](screenshots/search.png)
 
 ---
 
