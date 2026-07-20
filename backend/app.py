@@ -120,6 +120,8 @@ def expired(jwt_header, jwt_payload):
 
 from flask_cors import CORS
 
+from flask_cors import CORS
+
 CORS(
     app,
     resources={r"/*": {"origins": [
@@ -127,8 +129,8 @@ CORS(
         "http://127.0.0.1:5173",
         "https://celebration-vault-h4plab3ke-suyash99-archs-projects.vercel.app"
     ]}},
-    allow_headers=["Content-Type", "Authorization"],
-    methods=["GET", "POST", "PUT", "DELETE", "OPTIONS"]
+    methods=["GET", "POST", "PUT", "DELETE", "OPTIONS"],
+    allow_headers=["Content-Type", "Authorization"]
 )
 
 # =====================================================
