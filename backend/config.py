@@ -16,13 +16,15 @@ API_VERSION = "3.0"
 
 DATABASE_FILE = BASE_DIR / "birthday.db"
 
+import os
+
 # ==========================================
 # FLASK
 # ==========================================
 
-HOST = "127.0.0.1"
-PORT = 5000
-DEBUG = True
+HOST = "0.0.0.0"
+PORT = int(os.environ.get("PORT", 5000))
+DEBUG = False
 
 # ==========================================
 # JWT
