@@ -1,3 +1,17 @@
+<p align="center">
+  <img src="screenshots/banner.png" alt="Celebration Vault Banner" width="100%">
+</p>
+
+<h1 align="center">🎉 Celebration Vault</h1>
+
+<p align="center">
+A modern full-stack MERN application to securely manage birthdays, anniversaries, and cherished family memories in one beautiful digital vault.
+</p>
+
+<p align="center">
+  ⭐ Preserve Memories • Celebrate Life • Never Miss a Special Moment ⭐
+</p>
+
 # 🎉 Celebration Vault
 
 > Preserve memories. Celebrate moments. Share happiness.
