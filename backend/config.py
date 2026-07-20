@@ -30,7 +30,12 @@ DEBUG = False
 # JWT
 # ==========================================
 
-JWT_SECRET_KEY = "birthday_vault_2026_super_secret_key_1234567890_abcdefghijklmnopqrstuvwxyz"
+import os
+
+JWT_SECRET_KEY = os.environ.get(
+    "JWT_SECRET_KEY",
+    "birthday_vault_dev_secret"
+)
 
 JWT_ACCESS_TOKEN_EXPIRES = timedelta(days=7)
 
