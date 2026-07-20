@@ -12,7 +12,29 @@ A modern full-stack MERN application to securely manage birthdays, anniversaries
   ⭐ Preserve Memories • Celebrate Life • Never Miss a Special Moment ⭐
 </p>
 
+## 🌐 Live Demo
+
+🔗 **Frontend:** https://celebration-vault.vercel.app
+
+⚙️ **Backend API:** https://suyash99-arch-celebration-vault.onrender.com
+
+📂 **Repository:** https://github.com/Suyash99-arch/celebration-vault
+
+> **Note:** The backend is hosted on Render's free tier. The first request may take 30–60 seconds to wake up if the service has been idle.
+
 # 🎉 Celebration Vault
+
+![JavaScript](https://img.shields.io/badge/JavaScript-ES6-yellow?logo=javascript)
+
+![Vite](https://img.shields.io/badge/Vite-8-purple?logo=vite)
+
+![Flask](https://img.shields.io/badge/Flask-Backend-black?logo=flask)
+
+![SQLite](https://img.shields.io/badge/SQLite-Database-blue?logo=sqlite)
+
+![License](https://img.shields.io/badge/License-MIT-green)
+
+![Status](https://img.shields.io/badge/Status-Live-success)
 
 <p align="center">
 
@@ -27,6 +49,7 @@ A modern full-stack MERN application to securely manage birthdays, anniversaries
 ![Status](https://img.shields.io/badge/Version-v1.0.0-purple)
 
 </p>
+
 > Preserve memories. Celebrate moments. Share happiness.
 
 Celebration Vault is a modern full-stack web application built using the MERN stack that allows users to securely store, organize, and revisit their special celebrations and memorable moments through a clean, responsive, and user-friendly interface.
@@ -141,19 +164,17 @@ npm run dev
 
 ### Landing Page
 
-![Landing]
-(screenshots/landing-page_part1.png)
-(screenshots/landing-page_part2.png)
-(screenshots/landing-page_part3.png)
-(screenshots/landing-page_part4.png)
-(screenshots/landing-page_part5.png)
-(screenshots/landing-page_part6.png)
+![Landing](screenshots/landing-page_part1.png)
+![Landing](screenshots/landing-page_part2.png)
+![Landing](screenshots/landing-page_part3.png)
+![Landing](screenshots/landing-page_part4.png)
+![Landing](screenshots/landing-page_part5.png)
+![Landing](screenshots/landing-page_part6.png)
 
 ### Dashboard
 
-![Dashboard]
-(screenshots/dashboard_part1.png)
-(screenshots/dashboard_part2.png)
+![Dashboard](screenshots/dashboard_part1.png)
+![Dashboard](screenshots/dashboard_part2.png)
 
 ### Family Directory
 
@@ -165,13 +186,16 @@ npm run dev
 
 ### Anniversary Manager
 
-![Anniversary]
-(screenshots/anniversary_part1.png)
-(screenshots/anniversary_part2.png)
+![Anniversary](screenshots/anniversary_part1.png)
+![Anniversary](screenshots/anniversary_part2.png)
 
 ### Search
 
 ![Search](screenshots/search.png)
+
+### Setting
+
+![Search](screenshots/setting.png)
 
 ---
 
